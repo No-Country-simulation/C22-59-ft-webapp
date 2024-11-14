@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "mongodb": "^6.10.0",
+    "mongoose": "^8.8.1"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.11.97"
+  }
+}
