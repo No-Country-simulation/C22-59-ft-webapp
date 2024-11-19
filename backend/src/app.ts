@@ -2,6 +2,9 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import path from "path";
+import initDB from "../db/db.ts";
+
+initDB();
 
 const app = express();
 app.use(cors());
@@ -17,4 +20,6 @@ app.get("/", (req, res) => {
 app.listen(PORT, (): void => {
   console.log(`Server running on port ${PORT}`);
 });
+
+
 
