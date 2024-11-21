@@ -28,6 +28,7 @@
     "swagger-jsdoc": "^6.2.8",
     "swagger-themes": "^1.4.3",
     "swagger-ui-express": "^5.0.1",
+    "mongoose": "^8.8.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"
   },
@@ -41,6 +42,7 @@
     "@types/moment": "^2.11.29",
     "@types/swagger-jsdoc": "^6.0.4",
     "@types/swagger-ui-express": "^4.1.7",
+    "@types/mongoose": "^5.11.96",
     "nodemon": "^3.1.7"
   }
 }
