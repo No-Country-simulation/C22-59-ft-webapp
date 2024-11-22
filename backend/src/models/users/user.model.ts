@@ -41,15 +41,13 @@ const userSchema = new mongoose.Schema(
     },
     gender: {
       type: String,
+      enum: ["Masculino", "Femenino", "Otro"],
       required: true,
-    },
-    appointment: {
-      type: Date,
     },
     appointments: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Appointment",
+        ref: "Appointment", 
       },
     ],
   },

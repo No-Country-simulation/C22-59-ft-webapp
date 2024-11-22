@@ -19,7 +19,10 @@ export const createUser = async (
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = { ...rest, password: hashedPassword };
     const createdUser = await create(user);
-    return httpResponse.Ok(res, createdUser);
+    const userObject = createdUser.toObject();
+    const { password: _, ...restData } = userObject;
+
+    return httpResponse.Ok(res, { data: restData });
   } catch (err: any) {
     return httpResponse.Error(res, {
       message: "Could not create new User",
