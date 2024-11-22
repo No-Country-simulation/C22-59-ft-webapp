@@ -29,3 +29,11 @@ export const userSchema = Joi.object({
   gender: Joi.string().valid("Masculino", "Femenino", "Otro").required(),
   appointments: Joi.array().items(Joi.string().hex().length(24)).optional(),
 });
+
+
+export const loginSchema = Joi.object({
+  email: Joi.string().email().required(),
+  password: Joi.string().min(8).required().messages({
+    "string.min": "La contraseña debe tener al menos 8 caracteres.",
+  }),
+})
