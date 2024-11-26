@@ -22,7 +22,39 @@ const router = Router();
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Appointment'
+ *             type: object
+ *             properties:
+ *               doctor:
+ *                 type: string
+ *                 description: ID del doctor
+ *                 example: "674444c504d490b9f61bc41e"
+ *               user:
+ *                 type: string
+ *                 description: ID del usuario
+ *                 example: "6744448f04d490b9f61bc419"
+ *               date:
+ *                 type: string
+ *                 format: date
+ *                 description: Fecha de la cita (formato YYYY-MM-DD)
+ *                 example: "2024-11-28"
+ *               time:
+ *                 type: string
+ *                 format: time
+ *                 description: Hora de la cita (formato HH:mm)
+ *                 example: "11:30"
+ *               status:
+ *                 type: string
+ *                 enum: [scheduled, completed, cancelled]
+ *                 description: Estado de la cita
+ *                 example: "scheduled"
+ *               reason:
+ *                 type: string
+ *                 description: Motivo de la cita
+ *                 example: "Dolor estomacal"
+ *               notes:
+ *                 type: string
+ *                 description: Notas adicionales sobre la cita
+ *                 example: "Nauseas y mareos"
  *     responses:
  *       201:
  *         description: Cita creada exitosamente

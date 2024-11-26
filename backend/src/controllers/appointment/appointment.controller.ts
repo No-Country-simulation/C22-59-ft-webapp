@@ -7,26 +7,28 @@ const httpResponse = new HttpResponse();
 class AppointmentController {
   async createAppointment(req: Request, res: Response) {
     try {
-      const { doctorId, userId, date, reason } = req.body;
-      const appointment = await AppointmentService.createAppointment(
-        doctorId,
-        userId,
-        new Date(date),
-        reason
-      );
+      const { doctor, user, date, reason, status, time, notes } = req.body;
+      const appointment = await AppointmentService.createAppointment({
+        doctorId: doctor,
+        userId: user,
+        date,
+        reason,
+        status,
+        time,
+        notes,
+      });
       httpResponse.Ok(res, appointment);
     } catch (error: any) {
       httpResponse.Error(res, error.message || 'Error creating appointment');
     }
   }
 
-  async getAvailableSlots(req: Request, res: Response, next: NextFunction) {
+  async getAvailableSlots(req: Request, res: Response) {
     try {
       const { doctorId, date } = req.query;
       if (!doctorId || !date) {
         httpResponse.BadRequest(res, 'Doctor ID and date are required');
       }
-
       const slots = await AppointmentService.getAvailableSlots(
         doctorId as string,
         new Date(date as string)

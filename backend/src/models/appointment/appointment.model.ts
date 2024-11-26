@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import moment from "moment-timezone";
 
 const appointmentSchema = new mongoose.Schema(
   {
@@ -27,6 +28,14 @@ const appointmentSchema = new mongoose.Schema(
     },
     notes: {
       type: String,
+    },
+    createdAt: {
+      type: String,
+      default: moment().tz("America/Bogota").format(),
+    },
+    updatedAt: {
+      type: String,
+      default: moment().tz("America/Bogota").format(),
     },
   },
   { timestamps: true }
