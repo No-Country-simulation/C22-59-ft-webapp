@@ -1,10 +1,11 @@
 import { Request, Response } from "express";
 import { HttpResponse } from "../../helpers/error/validation.error";
-import { create } from "../../services/user/user.service";
+import { create, get } from "../../services/user/user.service";
 import { userSchema, loginSchema } from "../../helpers/user/schema.validator";
 import { login } from "../../services/user/user.service";
 import { createToken } from "../../helpers/token/token.creator";
 import bcrypt from "bcrypt";
+import { IUser } from "interfaces/user";
 
 const httpResponse = new HttpResponse();
 
@@ -50,6 +51,18 @@ export const loginUser = async (
   } catch (err: any) {
     return httpResponse.Error(res, {
       message: "Could not log in User",
+      error: err.message,
+    });
+  }
+};
+
+export const getUsers = async (req: Request, res: Response): Promise<any> => {
+  try {
+    const users = await get();
+    return httpResponse.Ok(res, { data: users });
+  } catch (err: any) {
+    return httpResponse.Error(res, {
+      message: "Could not get Users",
       error: err.message,
     });
   }
