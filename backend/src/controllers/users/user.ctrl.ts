@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { HttpResponse } from "../../helpers/error/validation.error";
-import { create, get } from "../../services/user/user.service";
+import { create, get, getById } from "../../services/user/user.service";
 import { userSchema, loginSchema } from "../../helpers/user/schema.validator";
 import { login } from "../../services/user/user.service";
 import { createToken } from "../../helpers/token/token.creator";
@@ -67,3 +67,16 @@ export const getUsers = async (req: Request, res: Response): Promise<any> => {
     });
   }
 };
+
+export const getUserById = async (req: Request, res: Response): Promise<any> => {
+  try {
+    const { id } = req.params;
+    const user = await getById(id);
+    return httpResponse.Ok(res, { data: user });
+  } catch (err: any) {
+    return httpResponse.Error(res, {
+      message: "Could not get User by ID",
+      error: err.message,
+    });
+  }
+}

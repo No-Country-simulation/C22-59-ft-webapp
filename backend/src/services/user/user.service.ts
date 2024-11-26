@@ -35,3 +35,15 @@ export const get = async () => {
     throw new Error(`Error getting users: ${error.message}`);
   }
 };
+
+export const getById = async (id: string) => {
+  try {
+    const usersData = await User.findById(id);
+    if (!usersData) {
+      throw new Error("User not found");
+    }
+    return usersData;
+  } catch (error: any) {
+    throw new Error(`Error getting user by id: ${error.message}`);
+  }
+}
