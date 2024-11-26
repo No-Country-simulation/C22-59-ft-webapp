@@ -1,0 +1,140 @@
+---
+
+---
+
+<div class="registrate">
+	<h1 class="text-3xl font-bold underline">REGISTRATE</h1>
+	<form action="login.php" method="POST">
+		<input
+			type="date"
+			name="date"
+			placeholder="Fecha de nacimiento"
+		/>
+		<input
+			type="text"
+			name="nombre"
+			placeholder="nombre completo"
+		/>
+		<input type="text" name="apellido" placeholder="apellido" />
+		<input
+			type="number"
+			name="dni"
+			placeholder="Documento de identidad"
+		/>
+
+		<input
+			type="email"
+			name="email"
+			placeholder="Correo electronico"
+		/>
+		<input
+			type="password"
+			name="password"
+			placeholder="Contraseña"
+		/>
+		<input
+			type="password"
+			name="password"
+			placeholder="Confirmar contraseña"
+		/>
+		<input type="number" name="telefono" placeholder="Teléfono" />
+		<input
+			type="number"
+			name="tel-responsable"
+			placeholder="Teléfono responsable"
+		/>
+		<select name="sangre" id="">
+			<option value="" selected disabled>Tipo de sangre</option>
+			<option value="A">A</option>
+			<option value="B">B</option>
+			<option value="AB">AB</option>
+			<option value="O">O</option>
+		</select>
+		<select name="genero" id="">
+			<option value="" selected disabled>Genero</option>
+			<option value="M">Masculino</option>
+			<option value="F">Femenino</option>
+			<option value="O">Otro</option>
+		</select>
+		<button type="submit">Registrarse</button>
+		<p>¿Ya tienes una cuenta? <a href="">Login</a></p>
+	</form>
+</div>
+
+
+<style>
+	/* Registrate */
+
+.registrate {
+    width: 520px;
+    height: 686px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 60px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+}
+
+.registrate h1 {
+    font-weight: 600;
+    line-height: normal;
+    background: linear-gradient(90deg, #8080fb 0%, #ec70ee 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.registrate form input {
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 237px;
+}
+
+.registrate form input[type='date'] {
+    padding: 10px;
+    margin-top: 20px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.registrate form select {
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 237px;
+}
+
+.registrate form button {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #8080fb;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.registrate form p {
+    margin: 20px 0;
+    text-align: end;
+    cursor: pointer;
+}
+.registrate form p a {
+    text-decoration: none;
+    color: #5f5fff;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: normal;
+}
+
+</style>
