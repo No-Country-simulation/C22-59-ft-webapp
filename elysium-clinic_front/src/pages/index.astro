@@ -1,17 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
-import Loguear from "../components/Loguear.astro";
-import Registrar from "../components/Registrar.astro";
+import Container from '../components/Container.astro';
+import Botones from '../components/Botones.astro';
 
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-		<Navbar/>
-		<Loguear/>
-		<Registrar/>
+	<Container> 
+		<!-- <Navbar/> -->
+		<main>
+			<h1 class="text-3xl bold underline">Elysium Clinic</h1>
+			<Botones/>
 		
-	</main>
+		</main>
+
+	</Container>
 </Layout>
 
