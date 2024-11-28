@@ -3,8 +3,9 @@ interface Props {
 	title: string;
 }
 import { ClientRouter } from 'astro:transitions';
-import Navbar from '../components/Navbar.astro';
-import Footer from "../components/Footer.astro"
+import Navbar from '../components/Secciones/Navbar.astro';
+import Footer from "../components/Secciones/Footer.astro";
+import "../../styles/main.css";
 
 const { title } = Astro.props;
 ---
@@ -25,8 +26,7 @@ const { title } = Astro.props;
 		 <!-- Navbar -->
 		<Navbar/>
 		<slot />
-
-		<Footer/>
+		<Footer />
 		<!-- Main script -->
 		<script src="../js/main"></script>
 	</body>

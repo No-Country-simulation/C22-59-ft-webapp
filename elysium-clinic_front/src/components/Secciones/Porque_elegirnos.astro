@@ -1,0 +1,117 @@
+---
+import ButtonMain from "../misc/ButtonMain.astro";
+---
+<div class="max-w-screen px-16 mx-auto bg-muted-100 dark:bg-muted-1000">
+    
+    <div class="my-6  ">
+        
+        <div class="bg-green-700  flex items-center justify-between rounded-lg overflow-hidden m-5">
+          
+          <div class="w-full m-auto text-white p-10">
+            <h1 class="text-3xl font-semibold mb-7 ">¡Te Esperamos!</h1>
+
+            <p class="text-muted-800 dark:text-muted-800 font-medium">Visítanos y descubre cómo podemos ayudarte a lucir y sentirte mejor.En Elysium tu belleza es nuestra pasión..
+            </p>
+          <div class="flex flex-cols-2 p-5 mx-5">
+            
+                <ButtonMain to={"/login"} class="'w-full md:w-[240px] lg:w-[110px] bg-black text-white mx-5'"
+                  >Turnos</ButtonMain
+                >
+                <ButtonMain to={"/login"} class="'w-full md:w-[240px] lg:w-[110px] bg-white text-black'"
+                  >Contacto</ButtonMain
+                >
+          </div>
+            
+          </div>
+
+          <div class="w-full h-full">
+            
+            <img 
+            src="/public/hero.svg"
+            alt="Gestion de proyectos sociales" 
+            class="ml-auto object-cover clip-triangle"/>
+          </div>
+        </div>
+    </div>
+
+    <h2 class="my-24 text-3xl text-violet-500 ">¿Por qué elegirnos?</h2>
+
+    <div class=" grid grid-cols-1 md:grid-cols-3 gap-6 my-10  ">
+        <div class="m-auto px-5 shadow-2xl py-16 rounded-xl">
+        <img
+        src="/public/medicina1.svg"
+        alt="imagen1"
+        class=" mx-auto "
+        />
+        <h3 class=" text-center text-violet-500 font-bold">
+            Atención Personalizada
+        </h3>
+        <p class=" text-center text-sm text-muted-500 dark:text-muted-400  font-medium">
+            Cada paciente es único, y nos tomamos el tiempo necesario para escuchar tus necesidades 
+            y diseñar un plan de tratamiento que te
+        </p>
+        </div>
+        <div class="m-auto px-5 shadow-2xl py-16 rounded-xl">
+        <img
+        src="/public/medicina2.svg"
+        
+        alt="imagen2"
+        class="mx-auto "
+        />
+        <h3 class=" text-center text-green-500 font-bold">
+            Expertos en Estética
+        </h3>
+        <p class=" text-center text-sm text-muted-500 dark:text-muted-400 font-medium">
+            Nuestro equipo está compuesto por profesionales altamente cualificados con 
+            amplia experiencia en el campo de la estética
+            y la medicina estética.
+        </p>
+        </div>
+        <div class="m-auto px-5 shadow-2xl py-16 rounded-xl">
+        <img
+        src="/public/medicina3.svg"
+        alt="imagen3"
+        class=" mx-auto"
+        />
+        <h3 class=" text-center text-sky-500 font-bold">
+            Tecnología de Punta
+        </h3>
+        <p class=" text-center text-sm text-muted-500 dark:text-muted-400font-medium">
+            Utilizamos equipos de última generación para asegurar que cada tratamiento sea seguro, 
+            eficaz y de la más alta calidad.
+        </p>
+        </div>
+
+    </div>
+    <div class=" grid grid-cols-1 md:grid-cols-2 gap-6 my-10  ">
+
+            <img src="/public/fotodeambiente.svg" 
+            alt="Ambiente"
+            class="relative w-auto mx-auto  "
+            />
+        
+        <div>
+        <h2 class="text-3xl text-violet-500 py-14 ">
+            Ambiente Confortable
+        </h2>
+        <p class="text-muted-500 dark:text-muted-400 font-medium">Sabemos lo importante que es tu comodidad, por lo que hemos diseñado un espacio tranquilo
+             y relajante,
+             donde podrás sentirte en confianza durante todo el proceso.</p>
+        </div>
+
+    </div>
+    
+        <div class="bg-green-700  rounded-lg mx-20 py-20">
+          
+          <div class="w-full m-auto text-white p-10">
+            <h1 class="text-3xl font-semibold mb-7 text-center ">Tu Belleza, Nuestra Prioridad</h1>
+
+            <p class="text-muted-800 dark:text-muted-800 font-extralight text-center">En nuestra clínica, no solo nos dedicamos a mejorar tu apariencia,
+                 sino a brindarte una experiencia de transformación y bienestar integral. Cada tratamiento está pensado para potenciar tu confianza
+                 y ayudarte a sentirte mejor contigo mismo/a.
+            </p>  
+          </div>
+
+        </div>
+
+</div>
