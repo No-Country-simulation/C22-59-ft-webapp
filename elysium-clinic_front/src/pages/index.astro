@@ -4,18 +4,21 @@ import Navbar from '../components/Navbar.astro';
 import Container from '../components/Container.astro';
 import Botones from '../components/Botones.astro';
 import HeroMain from "../components/Hero/HeroMain.astro";
+import Galeria from '../components/Galeria.astro';
+import Servicios from '../components/Servicios.astro';
 
 ---
 
 <Layout title="Elysium clinic">
 	<Container> 
-		<main>
+		<main class="flex flex-col items-center justify-center">
 			<HeroMain/>
-			<h1 class="text-3xl bold underline">Elysium Clinic</h1>
-			<Botones/>
-		
+			<!-- <h1 class="text-3xl bold underline">Elysium Clinic</h1>
+			<Botones/> -->
+			<Servicios/>
+			<Galeria/>
 		</main>
-
+		
 	</Container>
 </Layout>
 
