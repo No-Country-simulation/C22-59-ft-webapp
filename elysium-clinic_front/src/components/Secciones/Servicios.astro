@@ -1,10 +1,11 @@
 ---
-import MockupOne from "./MockupOne.astro"
+import MockupOne from "../misc/MockupOne.astro"
+import ButtonMain from "../misc/ButtonMain.astro";
 ---
 <!-- seccion nuestro servicios -->
 <div
   id="product"
-  class="flex flex-col md:flex-row items-center py-24"
+  class="flex flex-col w-screen md:flex-row items-center py-24 bg-muted-100 dark:bg-muted-1000"
   x-intersect="activeStep = 'spy-2'"
 >
   <!--Column-->
@@ -47,7 +48,15 @@ import MockupOne from "./MockupOne.astro"
               <span class="font-sans text-sm">Depilación Láser: Soluciones permanentes y sin dolor para una piel suave y libre de vello.
               </span>
               </li>
-          </ul>
+          
+            <li class="flex items-center pt-">
+          <div class="w-full md:w-auto">
+            <ButtonMain to={"/login"} class="'w-full md:w-[240px] lg:w-[110px]'"
+              >Turnos</ButtonMain
+            >
+          </div>
+        </li>
+        </ul>
         </span>
         
 
