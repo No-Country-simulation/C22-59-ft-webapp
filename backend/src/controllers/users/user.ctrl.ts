@@ -43,7 +43,7 @@ export const loginUser = async (
 
     const { error } = loginSchema.validate({ email, password });
     if (error)
-      return httpResponse.Error(res, "Verifique la Información Ingresada");
+      return httpResponse.BadRequest(res, "Verifique la Información Ingresada");
 
     const user = await login(email, password);
     const token = await createToken(user);

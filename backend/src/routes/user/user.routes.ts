@@ -63,9 +63,6 @@ const router = Router();
  *             - Male
  *             - Female
  *             - Other
- *         appointment:
- *           type: string
- *           description: Appointment date or identifier
  *       example:
  *         birthday: "1990-01-01"
  *         name: "Cristian"
@@ -77,7 +74,6 @@ const router = Router();
  *         optionalTelephone: "+987654321"
  *         blood: "O+"
  *         gender: "Male"
- *         appointment: "2024-11-01T10:00:00Z"
  * 
  *     Login:
  *       type: object
