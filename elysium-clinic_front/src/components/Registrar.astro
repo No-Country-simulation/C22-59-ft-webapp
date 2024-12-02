@@ -2,55 +2,62 @@
 
 ---
 <!-- Agregue el link a las paginas correspondiente -->
+<div class="container mx-auto pb-10 ">
 <div class="registrate">
 	<h1 class="text-3xl font-bold underline">REGISTRATE</h1>
 	<form action="login.php" method="POST">
 		<input
 			type="date"
-			name="date"
+			name="fecha"
 			placeholder="Fecha de nacimiento"
 		/>
 		<input
 			type="text"
 			name="nombre"
 			placeholder="nombre completo"
+			id="nombre"
 		/>
 		<input type="text" name="apellido" placeholder="apellido" />
 		<input
 			type="number"
 			name="dni"
 			placeholder="Documento de identidad"
+			id="dni"
 		/>
 
 		<input
 			type="email"
 			name="email"
 			placeholder="Correo electronico"
+			id="email"
 		/>
 		<input
 			type="password"
 			name="password"
 			placeholder="Contraseña"
+			id="password"
 		/>
 		<input
 			type="password"
-			name="password"
+			name="rpassword"
 			placeholder="Confirmar contraseña"
+			id="rpassword"
 		/>
-		<input type="number" name="telefono" placeholder="Teléfono" />
+		<input type="number" name="telefono" placeholder="Teléfono" id="telefono" />
 		<input
 			type="number"
 			name="tel-responsable"
 			placeholder="Teléfono responsable"
+			id="tel-responsable"
 		/>
-		<select name="sangre" id="">
+		<select name="sangre" id="tipoS">
 			<option value="" selected disabled>Tipo de sangre</option>
 			<option value="A">A</option>
 			<option value="B">B</option>
 			<option value="AB">AB</option>
 			<option value="O">O</option>
 		</select>
-		<select name="genero" id="">
+		<select name="genero" id="tigoG">
 			<option value="" selected disabled>Genero</option>
 			<option value="M">Masculino</option>
 			<option value="F">Femenino</option>
@@ -60,6 +67,12 @@
 		<p>¿Ya tienes una cuenta? <a href="/login">Login</a></p>
 	</form>
 </div>
+</div>
+<script>
+
+
+</script>
+
 
 
 <style>
