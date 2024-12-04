@@ -2,65 +2,66 @@
 
 ---
 <!-- Agregue el link a las paginas correspondiente -->
-<div class="registrate">
-	<h1 class="text-3xl font-bold underline">REGISTRATE</h1>
-	<form action="login.php" method="POST">
-		<input
-			type="date"
-			name="date"
-			placeholder="Fecha de nacimiento"
-		/>
-		<input
-			type="text"
-			name="nombre"
-			placeholder="nombre completo"
-		/>
-		<input type="text" name="apellido" placeholder="apellido" />
-		<input
-			type="number"
-			name="dni"
-			placeholder="Documento de identidad"
-		/>
+ <div class="bg-muted-100 dark:bg-muted-1000">
+	<div class="registrate bg-white ">
+		<h1 class="text-3xl font-bold underline">REGISTRATE</h1>
+		<form action="login.php" method="POST">
+			<input
+				type="date"
+				name="date"
+				placeholder="Fecha de nacimiento"
+			/>
+			<input
+				type="text"
+				name="nombre"
+				placeholder="nombre completo"
+			/>
+			<input type="text" name="apellido" placeholder="apellido" />
+			<input
+				type="number"
+				name="dni"
+				placeholder="Documento de identidad"
+			/>
 
-		<input
-			type="email"
-			name="email"
-			placeholder="Correo electronico"
-		/>
-		<input
-			type="password"
-			name="password"
-			placeholder="Contraseña"
-		/>
-		<input
-			type="password"
-			name="password"
-			placeholder="Confirmar contraseña"
-		/>
-		<input type="number" name="telefono" placeholder="Teléfono" />
-		<input
-			type="number"
-			name="tel-responsable"
-			placeholder="Teléfono responsable"
-		/>
-		<select name="sangre" id="">
-			<option value="" selected disabled>Tipo de sangre</option>
-			<option value="A">A</option>
-			<option value="B">B</option>
-			<option value="AB">AB</option>
-			<option value="O">O</option>
-		</select>
-		<select name="genero" id="">
-			<option value="" selected disabled>Genero</option>
-			<option value="M">Masculino</option>
-			<option value="F">Femenino</option>
-			<option value="O">Otro</option>
-		</select>
-		<button type="submit">Registrarse</button>
-		<p>¿Ya tienes una cuenta? <a href="/login">Login</a></p>
-	</form>
+			<input
+				type="email"
+				name="email"
+				placeholder="Correo electronico"
+			/>
+			<input
+				type="password"
+				name="password"
+				placeholder="Contraseña"
+			/>
+			<input
+				type="password"
+				name="password"
+				placeholder="Confirmar contraseña"
+			/>
+			<input type="number" name="telefono" placeholder="Teléfono" />
+			<input
+				type="number"
+				name="tel-responsable"
+				placeholder="Teléfono responsable"
+			/>
+			<select name="sangre" id="">
+				<option value="" selected disabled>Tipo de sangre</option>
+				<option value="A">A</option>
+				<option value="B">B</option>
+				<option value="AB">AB</option>
+				<option value="O">O</option>
+			</select>
+			<select name="genero" id="">
+				<option value="" selected disabled>Genero</option>
+				<option value="M">Masculino</option>
+				<option value="F">Femenino</option>
+				<option value="O">Otro</option>
+			</select>
+			<button type="submit">Registrarse</button>
+			<p>¿Ya tienes una cuenta? <a href="/login">Login</a></p>
+		</form>
+	</div>
 </div>
-
 
 <style>
 	/* Registrate */
@@ -71,7 +72,6 @@
     margin: 0 auto;
     padding: 20px;
     margin-top: 160px;
-    background-color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
 }
