@@ -27,8 +27,8 @@ const options: swaggerJsDoc.Options = {
 	},
 	apis:
 		(process.env.NODE_ENV ?? "local") !== "local"
-			? ["./dist/controllers/*.ts"] // Production
-			: ["./src/controllers/*.ts"], //["./src/**/*.ts"] Local
+			? ["./dist/routes/user/user.routes.ts"] // Production
+			: ["./src/routes/user/user.routes.ts"], //["./src/**/*.ts"] Local
 };
 const swaggerSpec = swaggerJsDoc(options);
 

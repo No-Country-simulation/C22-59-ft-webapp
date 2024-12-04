@@ -2,11 +2,11 @@
 
 ---
 <!-- Agregue el link a las paginas correspondiente -->
-<div class="bg-muted-100 dark:bg-muted-1000">
+<div class="bg-muted-100">
     <div class="container bg-white">
         <img src="../../public/assets/solo-img.webp" class=" w-28 mb-5 m-auto block" alt="" />
         <h1 class="text-3xl font-bold underline">LOGIN</h1>
-        <form id="loginForm">
+        <form id="loginForm" >
             <input
                 type="text"
                 name="email"
@@ -26,7 +26,8 @@
             <span>¿No tienes una cuenta? <a href="/registro" >Registrate</a></span>
         </form>
     </div>
-
+    </div>
+    
     <script>
         
             const loginForm = document.getElementById('loginForm');
@@ -45,7 +46,10 @@
                         },
                         body: JSON.stringify({ email, password })
                     })
+                   
                     .then((response) => response.json());
+                    
+                    
                     
                     
                     if (response.status=== 200) {
@@ -67,68 +71,70 @@
             });
         
     </script>
-</div>
-
-<style>
-	.container {
-    width: 420px;
-    height: 709px;
-    margin: 0 auto;
-    padding: 20px;
-    margin-top: 160px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border-radius: 15px;
-}
-
-/* .container img {
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 20px;
-} */
-
-.container h1 {
-    font-weight: 600;
-    line-height: normal;
-    background: linear-gradient(90deg, #8080fb 0%, #ec70ee 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-align: center;
-}
-
-.container form {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-}
-
-.container form input {
-    padding: 15px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-}
-
-.container form span {
-    margin: 20px 0;
-    text-align: end;
-    cursor: pointer;
-}
-
-.container form span a {
-    text-decoration: none;
-    color: #5f5fff;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: normal;
-}
-
-.container form button {
-    padding: 15px;
-    background-color: #8080fb;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-}
-</style>
+    
+    
+    <style>
+        .container {
+        width: 420px;
+        height: 709px;
+        margin: 0 auto;
+        padding: 20px;
+        margin-top: 160px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        
+    }
+    
+    /* .container img {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    } */
+    
+    .container h1 {
+        font-weight: 600;
+        line-height: normal;
+        background: linear-gradient(90deg, #8080fb 0%, #ec70ee 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+    }
+    
+    .container form {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+    
+    .container form input {
+        padding: 15px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+    }
+    
+    .container form span {
+        margin: 20px 0;
+        text-align: end;
+        cursor: pointer;
+    }
+    
+    .container form span a {
+        text-decoration: none;
+        color: #5f5fff;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: normal;
+    }
+    
+    .container form button {
+        padding: 15px;
+        background-color: #8080fb;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    </style>

@@ -46,4 +46,13 @@ export const getById = async (id: string) => {
   } catch (error: any) {
     throw new Error(`Error getting user by id: ${error.message}`);
   }
-}
+};
+
+export const deleteById = async (id: string) => {
+  try {
+    await User.findByIdAndDelete(id);
+    return { message: "User deleted successfully" };
+  } catch (error: any) {
+    throw new Error(`Error deleting user by id: ${error.message}`);
+  }
+};
