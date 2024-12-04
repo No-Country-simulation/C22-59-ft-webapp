@@ -2,11 +2,11 @@
 
 ---
 <!-- Agregue el link a las paginas correspondiente -->
-<div class="bg-muted-100 dark:bg-muted-900 pb-10">
+<div class="bg-muted-100">
 <div class="container bg-white">
 	<img src="../../public/assets/solo-img.webp" class=" w-28 mb-5 m-auto block" alt="" />
 	<h1 class="text-3xl font-bold underline">LOGIN</h1>
-	<form id="loginForm" class=>
+	<form id="loginForm" >
 		<input
 			type="text"
 			name="email"
@@ -46,7 +46,10 @@
                     },
                     body: JSON.stringify({ email, password })
                 })
+               
                 .then((response) => response.json());
+                
+                
                 
                 
                 if (response.status=== 200) {
