@@ -1,7 +1,7 @@
 ---
-import ButtonMain from "./misc/ButtonMain.astro";
-import ThemeToggler from "./misc/ThemeToggler.astro";
-import Hamburger from "./misc/Hamburger.astro";
+import ButtonMain from "../misc/ButtonMain.astro";
+import ThemeToggler from "../misc/ThemeToggler.astro";
+import Hamburger from "../misc/Hamburger.astro";
 
 
 ---
@@ -45,28 +45,29 @@ import Hamburger from "./misc/Hamburger.astro";
         <div class="relative py-3 lg:py-5 after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:h-[3px] after:rounded-t-full after:transition-all after:duration-300 transition-colors duration-300"
           :class="activeStep === 'spy-1' ? 'text-primary-500 after:bg-primary-500 after:w-full' : 'text-slate-500 dark:text-slate-400 hover:text-muted-700 dark:hover:text-muted-100 after:w-0'"
         >
-          <a href="#doctors">Doctors</a>
+          <a href="/">Inicio</a>
         </div>
         <div class="relative py-3 lg:py-5 after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:h-[3px] after:rounded-t-full after:transition-all after:duration-300 transition-colors duration-300"
           :class="activeStep === 'spy-2' ? 'text-primary-500 after:bg-primary-500 after:w-full' : 'text-slate-500 dark:text-slate-400 hover:text-muted-700 dark:hover:text-muted-100 after:w-0'"
         >
-          <a href="#product">Product</a>
+          <a href="#contacto" >Contacto</a>
         </div>
         <div class="relative py-3 lg:py-5 after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:h-[3px] after:rounded-t-full after:transition-all after:duration-300 transition-colors duration-300"
           :class="activeStep === 'spy-3' ? 'text-primary-500 after:bg-primary-500 after:w-full' : 'text-slate-500 dark:text-slate-400 hover:text-muted-700 dark:hover:text-muted-100 after:w-0'"
         >
-          <a href="#pricing">Pricing</a>
+          <a href="#elegirnos">¿Por qué elegirnos?</a>
         </div>
         <div class="relative py-3 lg:py-5 text-slate-500 dark:text-slate-400 hover:text-muted-700 dark:hover:text-muted-100 transition-colors duration-300">
-          <a href="#">Sign In</a>
+          <a href="#servicios">servicios</a>
         </div>
         <div class="py-3 lg:py-5">
           <ThemeToggler />
         </div>
         <div class="w-full md:w-auto">
-          <ButtonMain to={"#"} class="'w-full md:w-[240px] lg:w-[110px]'"
+          <ButtonMain to={"/login"} class="'w-full md:w-[240px] lg:w-[110px]'"
             >Signup</ButtonMain
           >
+        </a>
         </div>
       </div>
       
