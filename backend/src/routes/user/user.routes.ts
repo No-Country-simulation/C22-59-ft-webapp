@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { createUser, loginUser, getUsers, getUserById, deleteUserById } from "../../controllers/users/user.ctrl";
-
+import { isAdministrator } from "../../middlewares/administrator/administrator.mw";
 
 const router = Router();
 
@@ -139,7 +139,7 @@ router.post("/users/auth/register", createUser);
  *       500:
  *         description: Error when LOGGING IN USER
  */
-router.post("/users/auth/login", loginUser);
+router.post("/users/auth/login", isAdministrator, loginUser);
 
 /**
  * @swagger
