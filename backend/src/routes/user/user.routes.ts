@@ -1,5 +1,4 @@
 import { Router } from "express";
-<<<<<<< HEAD
 import { validateToken } from "../../helpers/token/token.validator";
 import {
   createUser,
@@ -8,10 +7,7 @@ import {
   getUserById,
   deleteUserById,
 } from "../../controllers/users/user.ctrl";
-=======
-import { createUser, loginUser, getUsers, getUserById, deleteUserById } from "../../controllers/users/user.ctrl";
 import { isAdministrator } from "../../middlewares/administrator/administrator.mw";
->>>>>>> e9b7bf9292b478bbd0a8f847a7ef918327ae6e83
 
 const router = Router();
 
@@ -106,6 +102,7 @@ const router = Router();
  * /api/users/auth/register:
  *   post:
  *     summary: Create a new USER
+ *     security: []
  *     tags: [USER]
  *     requestBody:
  *       required: true
@@ -132,6 +129,7 @@ router.post("/users/auth/register", createUser);
  * @swagger
  * /api/users/auth/login:
  *   post:
+ *     security: []
  *     summary: Login USER
  *     tags: [USER]
  *     requestBody:

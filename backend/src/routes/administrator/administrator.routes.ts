@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { createAdministrator,loginAdministrator } from "../../controllers/administrator/administrator.ctrl";
+import { validateToken } from "../../helpers/token/token.validator";	
 
 const router = Router();
 /**
@@ -66,6 +67,8 @@ const router = Router();
  *         password: "12345678" 
  * /api/administrator:
  *   post:
+ *     security:
+ *        - bearerAuth: []
  *     summary: Create a new ADMINISTRATOR
  *     tags: [ADMINISTRATOR]
  *     requestBody:
@@ -83,16 +86,19 @@ const router = Router();
  *               $ref: '#/components/schemas/IAdministrator'
  *       400:
  *         description: Invalid input
+ *       401:
+ *         description: Unauthorized
  *       500:
  *         description: Error creating the ADMINISTRATOR
  */
-router.post("/administrator", createAdministrator);
+router.post("/administrator",validateToken, createAdministrator);
 /**
  * @swagger
  * /api/administrator/auth/login:
  *   post:
  *     summary: Login ADMINISTRATOR
  *     tags: [ADMINISTRATOR]
+ *     security: []
  *     requestBody:
  *       required: true
  *       content:
@@ -106,6 +112,8 @@ router.post("/administrator", createAdministrator);
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/AdminLogin'
+ *       404:
+ *         description: Not Found
  *       500:
  *         description: Error when LOGGING IN ADMINISTRATOR
  */
