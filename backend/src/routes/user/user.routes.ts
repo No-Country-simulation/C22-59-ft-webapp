@@ -1,6 +1,12 @@
 import { Router } from "express";
-import { createUser, loginUser, getUsers, getUserById, deleteUserById } from "../../controllers/users/user.ctrl";
-
+import { validateToken } from "../../helpers/token/token.validator";
+import {
+  createUser,
+  loginUser,
+  getUsers,
+  getUserById,
+  deleteUserById,
+} from "../../controllers/users/user.ctrl";
 
 const router = Router();
 
@@ -60,9 +66,9 @@ const router = Router();
  *           type: string
  *           description: USER's gender
  *           enum:
- *             - Male
- *             - Female
- *             - Other
+ *             - Masculino
+ *             - Femenino
+ *             - Otro
  *       example:
  *         birthday: "1990-01-01"
  *         name: "Cristian"
@@ -73,8 +79,8 @@ const router = Router();
  *         telephone: "+123456789"
  *         optionalTelephone: "+987654321"
  *         blood: "O+"
- *         gender: "Male"
- * 
+ *         gender: "Masculino"
+ *
  *     Login:
  *       type: object
  *       required:
@@ -157,7 +163,7 @@ router.post("/users/auth/login", loginUser);
  *       500:
  *         description: Error when fetching USERS
  */
-router.get("/users", getUsers);
+router.get("/users", validateToken, getUsers);
 
 /**
  * @swagger
@@ -186,7 +192,7 @@ router.get("/users", getUsers);
  *       500:
  *         description: Error fetching USER
  */
-router.get("/users/:id", getUserById);
+router.get("/users/:id", validateToken, getUserById);
 
 /**
  * @swagger
@@ -210,6 +216,6 @@ router.get("/users/:id", getUserById);
  *       500:
  *         description: Error when deleting USER
  */
-router.delete("/users/:id", deleteUserById);
+router.delete("/users/:id", validateToken, deleteUserById);
 
 export default router;
