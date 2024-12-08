@@ -1,4 +1,5 @@
 import { Router } from "express";
+<<<<<<< HEAD
 import { validateToken } from "../../helpers/token/token.validator";
 import {
   createUser,
@@ -7,6 +8,10 @@ import {
   getUserById,
   deleteUserById,
 } from "../../controllers/users/user.ctrl";
+=======
+import { createUser, loginUser, getUsers, getUserById, deleteUserById } from "../../controllers/users/user.ctrl";
+import { isAdministrator } from "../../middlewares/administrator/administrator.mw";
+>>>>>>> e9b7bf9292b478bbd0a8f847a7ef918327ae6e83
 
 const router = Router();
 
@@ -145,7 +150,7 @@ router.post("/users/auth/register", createUser);
  *       500:
  *         description: Error when LOGGING IN USER
  */
-router.post("/users/auth/login", loginUser);
+router.post("/users/auth/login", isAdministrator, loginUser);
 
 /**
  * @swagger
