@@ -97,4 +97,4 @@ Elysium Clinic es una aplicación web que permite a los pacientes registrarse y 
 ---
 
 ### 📝 Notas Adicionales
-- **Documentación de la API**: Disponible en `http://localhost:4000//api-docs` (Swagger).  
+- **Documentación de la API**: Disponible en `http://localhost:4000/api/docs` (Swagger).  
