@@ -28,13 +28,13 @@ const options: swaggerJsDoc.Options = {
 	apis:
 		(process.env.NODE_ENV ?? "local") !== "local"
 			? ["./dist/routes/user/user.routes.ts"] // Production
-			: ["./src/routes/user/user.routes.ts"], //["./src/**/*.ts"] Local
+			: ["./src/routes/**/**.routes.ts"], //["./src/**/*.ts"] Local
 };
 const swaggerSpec = swaggerJsDoc(options);
 
 const swaggerDocs =  async (app: Express) => {
     app.use(
-			"/api-docs",
+			"/api/docs",
 			swaggerUi.serve,
 			swaggerUi.setup(swaggerSpec, swaggerUiOptions)
 		);
