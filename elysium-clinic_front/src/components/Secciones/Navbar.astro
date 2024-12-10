@@ -43,7 +43,7 @@ import Hamburger from "../misc/Hamburger.astro";
     >
       <div class="flex flex-col lg:flex-row items-center gap-x-6 lg:gap-x-10">
         <div class="relative py-3 lg:py-5 after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:h-[3px] after:rounded-t-full after:transition-all after:duration-300 transition-colors duration-300"
-          :class="activeStep === 'spy-1' ? 'text-primary-500 after:bg-primary-500 after:w-full' : 'text-slate-500 dark:text-slate-400 hover:text-muted-700 dark:hover:text-muted-100 after:w-0'"
+          :class="activeStep ==='spy-1' ? 'text-primary-500 after:bg-primary-500 after:w-full' : 'text-slate-500 dark:text-slate-400 hover:text-muted-700 dark:hover:text-muted-100 after:w-0'"
         >
           <a href="#Inicio">Inicio</a>
         </div>
@@ -67,7 +67,7 @@ import Hamburger from "../misc/Hamburger.astro";
         </div>
         <div class="w-full md:w-auto">
           <ButtonMain to={"/login"} class="'w-full md:w-[240px] lg:w-[110px]'"
-            >Signup</ButtonMain
+            >Ingresar</ButtonMain
           >
         </a>
         </div>

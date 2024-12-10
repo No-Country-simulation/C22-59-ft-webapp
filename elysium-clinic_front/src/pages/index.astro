@@ -4,9 +4,9 @@ import Container from '../components/Container.astro';
 import HeroMain from "../components/Hero/HeroMain.astro";
 import Galeria from '../components/Secciones/Galeria.astro';
 import Servicios from '../components/Secciones/Servicios.astro';
-import Elegirnos from '../components/Secciones/Porque_elegirnos.astro';
+import Contacto from '../components/Secciones/Contacto.astro';
 import Navbar from '../components/Secciones/Navbar.astro';
-
+import Elegirnos from '../components/Secciones/Porque_elegirnos.astro';
 ---
 
 <Layout title="Elysium clinic">
@@ -15,9 +15,11 @@ import Navbar from '../components/Secciones/Navbar.astro';
 		transition:animate="initial"
 		>
 			<Navbar/>
-			<HeroMain/>
-			<Elegirnos/>
-			<Servicios/>
+			
+			<HeroMain />
+			<Contacto />
+			<Elegirnos />
+			<Servicios />
 			<Galeria/>
 		</main>
 		
