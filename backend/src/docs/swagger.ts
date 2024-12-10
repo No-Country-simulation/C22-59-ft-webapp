@@ -3,6 +3,9 @@ import swaggerJsDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import { SwaggerTheme, SwaggerThemeNameEnum }from 'swagger-themes';
 import "dotenv/config";
+
+
+
 const swaggerUiOptions = {
     explorer: true,
     customCss: (new SwaggerTheme()).getBuffer(SwaggerThemeNameEnum.ONE_DARK),
@@ -30,7 +33,10 @@ const options: swaggerJsDoc.Options = {
 			? ["./dist/routes/user/user.routes.ts"] // Production
 			: ["./src/routes/**/**.routes.ts"], //["./src/**/*.ts"] Local
 };
+
 const swaggerSpec = swaggerJsDoc(options);
+
+
 
 const swaggerDocs =  async (app: Express) => {
     app.use(
