@@ -1,0 +1,20 @@
+---
+import ButtonMain from "../components/misc/ButtonMain.astro";
+---
+<div class="grid-columns-2 flex-row bg-muted-100 w-screen h-screen flex justify-between">
+    <div class="justify-center m-auto pl-48">
+        <h1 class="text-5xl font-black py-5">Oops.... </h1>
+        <p class="py-4 text-4xl font-medium">Pagina no encontrada</p>
+        <p class="pb-10 text-gray-600">Esta pagina no existe o ha sido eliminada.
+            Le sugerimos que vuelva a casa.</p>
+            <ButtonMain to={"/"} class=" md:w-[300px] lg:w-[500px]">
+            Vuelve a casa</ButtonMain>
+    </div>
+    <div class=" m-auto pr-40">
+        <img class="w-auto"
+			src="../public/error.svg"
+			alt="404"
+			/>
+    </div>
+
+</div>

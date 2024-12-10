@@ -1,9 +1,19 @@
 ---
 import ButtonMain from "./misc/ButtonMain.astro";
+
 ---
 <!-- Agregue el link a las paginas correspondiente -->
-<div class="container pt-20 pb-10 bg-muted-100 dark:bg-muted-1000 w-full">
-<div class="registrate shadow-2xl bg-muted-100 rounded-2xl ">
+<div class=" py-10 bg-muted-100 dark:bg-muted-1000 w-screen">
+	
+	<a href="/">
+		<img class="w-24 h-20 flex fixed top-0 left-0"
+			src="../public/logo-elysium-subido.png"
+			alt="Logo"
+			/>
+	</a>
+
+
+<div class="registrate shadow-2xl bg-white mx-auto rounded-2xl p-5 ">
 	<h1 class="text-3xl font-bold ">REGISTRATE</h1>
 	<form id="registerForm">
 		<input
@@ -142,11 +152,8 @@ import ButtonMain from "./misc/ButtonMain.astro";
 .registrate {
     width: 520px;
     height: 686px;
-    margin: 0 auto;
-    padding: 20px;
 
 }
-
 .registrate h1 {
     font-weight: 600;
     line-height: normal;
@@ -207,5 +214,4 @@ import ButtonMain from "./misc/ButtonMain.astro";
     font-size: 14px;
     line-height: normal;
 }
-
 </style>
