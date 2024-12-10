@@ -57,6 +57,7 @@ module.exports = {
   plugins: [
     require("@tailwindcss/typography"),
     require("@tailwindcss/aspect-ratio"),
+    require("tailwindcss-animate"),
 		//Additional utilities
 		plugin(function ({ addUtilities }) {
       addUtilities({
