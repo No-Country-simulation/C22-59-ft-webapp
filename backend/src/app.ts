@@ -3,9 +3,10 @@ import express from "express";
 import cors from "cors";
 import path from "path";
 import swaggerDocs from "./docs/swagger";
-import initDB from "@db/db";
-import userRoutes from "@routes/user/user.routes";
 import appointmentRoutes from "@routes/appointment/appointment.routes";
+import initDB from "../src/db/db";
+import userRoutes from "../src/routes/user/user.routes";
+import administratorRoutes from "../src/routes/administrator/administrator.routes";
 
 const app = express();
 app.use(cors());
@@ -32,8 +33,9 @@ app.get("/", (req, res) => {
   res.sendFile("index.html");
 });
 
-app.use("/api/users", userRoutes);
 app.use('/api/appointments', appointmentRoutes);
+app.use("/api", userRoutes);
+app.use("/api", administratorRoutes);
 
 app.listen(PORT, (): void => {
   swaggerDocs(app);

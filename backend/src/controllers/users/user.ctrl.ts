@@ -5,7 +5,7 @@ import { userSchema, loginSchema } from "../../helpers/user/schema.validator";
 import { login } from "../../services/user/user.service";
 import { createToken } from "../../helpers/token/token.creator";
 import bcrypt from "bcrypt";
-import { IUser } from "interfaces/user";
+import userModel from "../../models/users/user.model";
 
 const httpResponse = new HttpResponse();
 
@@ -43,7 +43,7 @@ export const loginUser = async (
 
     const { error } = loginSchema.validate({ email, password });
     if (error)
-      return httpResponse.Error(res, "Verifique la Información Ingresada");
+      return httpResponse.BadRequest(res, "Verifique la Información Ingresada");
 
     const user = await login(email, password);
     const token = await createToken(user);
@@ -59,6 +59,7 @@ export const loginUser = async (
 export const getUsers = async (req: Request, res: Response): Promise<any> => {
   try {
     const users = await get();
+    if (!users) return httpResponse.NotFound(res, { message: "Users not found" });
     return httpResponse.Ok(res, { data: users });
   } catch (err: any) {
     return httpResponse.Error(res, {
@@ -72,6 +73,7 @@ export const getUserById = async (req: Request, res: Response): Promise<any> => 
   try {
     const { id } = req.params;
     const user = await getById(id);
+    if (!user) return httpResponse.NotFound(res, { message: "User not found" });
     return httpResponse.Ok(res, { data: user });
   } catch (err: any) {
     return httpResponse.Error(res, {
@@ -80,3 +82,18 @@ export const getUserById = async (req: Request, res: Response): Promise<any> => 
     });
   }
 }
+
+
+export const deleteUserById = async (req: Request, res: Response): Promise<any> => {
+  try {
+    const { id } = req.params;
+    const deletedUser =  await userModel.findByIdAndDelete(id);
+    if (!deletedUser) return httpResponse.NotFound(res, { message: "User not found" });
+    return httpResponse.Ok(res, { message: "User deleted successfully" });
+  } catch (err: any) {
+    return httpResponse.Error(res, {
+      message: "Could not delete User by ID",
+      error: err.message,
+    });
+  }
+};

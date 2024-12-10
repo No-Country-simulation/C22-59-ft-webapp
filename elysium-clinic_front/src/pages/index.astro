@@ -1,17 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
-import Loguear from "../components/Loguear.astro";
-import Registrar from "../components/Registrar.astro";
+import Container from '../components/Container.astro';
+import HeroMain from "../components/Hero/HeroMain.astro";
+import Galeria from '../components/Secciones/Galeria.astro';
+import Servicios from '../components/Secciones/Servicios.astro';
+import Elegirnos from '../components/Secciones/Porque_elegirnos.astro';
 
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<Navbar/>
-		<Loguear/>
-		<Registrar/>
+<Layout title="Elysium clinic">
+	<Container> 
+		<main class="flex flex-col items-center justify-center">
+			<HeroMain/>
+			
+			<Elegirnos/>
+			<Servicios/>
+			<Galeria/>
+		</main>
 		
-	</main>
+	</Container>
 </Layout>
 

@@ -1,0 +1,64 @@
+---
+import Container from "../Container.astro";
+
+---
+<!-- Cambie tamaño del footer -->
+<footer class="font-sans bg-white dark:bg-muted-900">
+  
+  <Container>
+    <div class="px-1 py-1 mx-auto ">
+      <div class="flex justify-center">
+        <div >
+          <div class="max-w-[280px] mx-auto md:mx-0">
+            <a
+              href="/"
+              class="flex items-center justify-center md:justify-center gap-3 mb-4"
+            >
+              <div class="text-primary-600 transition-all duration-300">
+              
+                 <img class="w-auto h-auto" src="../../public/logo-elysium-subido.png" alt="">
+              </div>
+              
+            </a>
+           
+          </div>
+        </div>
+      
+  </Container>
+  <div class="py-4 flex justify-center items-center">
+    
+      <div class="flex flex-wrap justify-center items-center">
+        <span
+          class="flex justify-center items-center ltablet:ml-auto lg:ml-auto md:mt-0 mt-6 w-full  md:justify-center md:w-auto"
+        >
+          <a href="#" class="text-muted-500">
+            <iconify-icon class="iconify w-5 h-5 flex items-center justify-center text-md" icon="fa6-brands:facebook-f"></iconify-icon>
+          </a>
+          <a href="#" class="ml-3 text-muted-500">
+            <iconify-icon class="iconify w-5 h-5 flex items-center justify-center text-md" icon="fa6-brands:twitter"></iconify-icon>
+          </a>
+          <a href="#" class="ml-3 text-muted-500">
+            <iconify-icon class="iconify w-5 h-5 flex items-center justify-center text-md" icon="fa6-brands:instagram"></iconify-icon>
+          </a>
+          <a href="#" class="ml-3 text-muted-500">
+            <iconify-icon class="iconify w-5 h-5 flex items-center justify-center text-md" icon="fa6-brands:linkedin-in"></iconify-icon>
+          </a>
+        </span>
+      </div>
+    
+  </div>
+
+  <div class="bg-muted-100 dark:bg-muted-800">
+    <Container>
+      <div class="py-4 px-5 flex  justify-center items-centerflex-wrap flex-col sm:flex-row">
+        <p
+          class="text-muted-500 dark:text-muted-400 text-sm text-center sm:text-left"
+        >
+          © {new Date().getFullYear()} Elysium Clinic 
+         
+        </p>
+        
+      </div>
+    </Container>
+  </div>
+</footer>
