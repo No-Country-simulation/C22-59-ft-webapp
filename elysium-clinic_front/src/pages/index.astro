@@ -5,14 +5,17 @@ import HeroMain from "../components/Hero/HeroMain.astro";
 import Galeria from '../components/Secciones/Galeria.astro';
 import Servicios from '../components/Secciones/Servicios.astro';
 import Elegirnos from '../components/Secciones/Porque_elegirnos.astro';
+import Navbar from '../components/Secciones/Navbar.astro';
 
 ---
 
 <Layout title="Elysium clinic">
 	<Container> 
-		<main class="flex flex-col items-center justify-center">
+		<main class="flex flex-col items-center justify-center" transition:name="root"
+		transition:animate="initial"
+		>
+			<Navbar/>
 			<HeroMain/>
-			
 			<Elegirnos/>
 			<Servicios/>
 			<Galeria/>
