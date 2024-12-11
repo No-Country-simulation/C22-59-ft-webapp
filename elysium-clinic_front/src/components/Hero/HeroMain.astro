@@ -1,13 +1,16 @@
 ---
 import ButtonMain from "../misc/ButtonMain.astro";
-import ButtonSub from "../misc/ButtonSub.astro";
 import HeroMainModuleOne from "./HeroMainModuleOne.astro";
+
 ---
 
 <div
-  class="min-h-screen w-full overflow-hidden bg-muted-100 dark:bg-muted-1000"
+  class="min-h-screen w-full overflow-hidden bg-muted-100 dark:bg-muted-1000 "
+  data-aos=""
+  id="Inicio" x-data="Inicio()"  x-intersect="activeStep = 'spy-1'"
 >
-  <div class="min-h-screen w-full max-w-7xl mx-auto flex items-center px-4">
+  
+  <div class="min-h-screen w-full max-w-7xl mx-auto flex items-center px-4 animate-fade-in duration-10000">
     <div class="w-full grid grid-cols-12">
       <div class="col-span-12 ltablet:col-span-5 lg:col-span-5">
         <div

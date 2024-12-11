@@ -11,7 +11,7 @@ const options: swaggerJsDoc.Options = {
 	definition: {
 		openapi: "3.0.0",
 		info: {
-			title: "No Country API",
+			title: "Elysium Clinic API",
 			version: "1.0.0",
 			description: "Backend Service REST API.",
 			license: {

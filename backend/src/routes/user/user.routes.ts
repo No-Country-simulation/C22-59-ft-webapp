@@ -102,6 +102,7 @@ const router = Router();
  * /api/users/auth/register:
  *   post:
  *     summary: Create a new USER
+ *     security: []
  *     tags: [USER]
  *     requestBody:
  *       required: true
@@ -128,6 +129,7 @@ router.post("/users/auth/register", createUser);
  * @swagger
  * /api/users/auth/login:
  *   post:
+ *     security: []
  *     summary: Login USER
  *     tags: [USER]
  *     requestBody:

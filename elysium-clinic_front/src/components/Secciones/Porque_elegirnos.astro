@@ -1,43 +1,10 @@
----
-import ButtonMain from "../misc/ButtonMain.astro";
----
-<div class="max-w-screen px-16 mx-auto bg-muted-100 dark:bg-muted-1000 " id="contacto">
-    
-    <div class="my-6  ">
-        
-        <div class="bg-muted-900 dark:bg-muted-200  flex items-center justify-between rounded-lg overflow-hidden m-5">
-          
-          <div class="w-full m-auto text-muted-100 dark:text-muted-800 p-10" id="contacto">
-            <h1 class="text-3xl font-semibold mb-7 ">¡Te Esperamos!</h1>
+<div class="bg-muted-100 dark:bg-muted-1000" id="elegirnos" x-data="elegirnos()"  x-intersect="activeStep = 'spy-3'">
+<div data-aos="fade-up"
+    data-aos-anchor-placement="top-center" data-aos-duration="1500" data-aos-delay="0" data-aos-easing=" ease-in"
+    >
+    <h2 class="my-24 text-3xl text-violet-500 " >¿Por qué elegirnos?</h2>
 
-            <p class="text-muted-100 dark:text-muted-800 font-medium">Visítanos y descubre cómo podemos ayudarte a lucir y sentirte mejor.En Elysium tu belleza es nuestra pasión..
-            </p>
-          <div class="flex flex-cols-2 p-5 mx-5">
-            
-                <ButtonMain to={"/login"} class="'w-full md:w-[240px] lg:w-[110px] bg-black text-white mx-5'"
-                  >Turnos</ButtonMain
-                >
-                <ButtonMain to={"/login"} class="'w-full md:w-[240px] lg:w-[110px] bg-black text-white mx-5'"
-                >Contacto</ButtonMain
-              >
-                
-          </div>
-            
-          </div>
-
-          <div class="w-full h-full">
-            
-            <img 
-            src="/public/hero.svg"
-            alt="Gestion de proyectos sociales" 
-            class="ml-auto object-cover clip-triangle"/>
-          </div>
-        </div>
-    </div>
-
-    <h2 class="my-24 text-3xl text-violet-500 " id="elegirnos">¿Por qué elegirnos?</h2>
-
-    <div class=" grid grid-cols-1 md:grid-cols-3 gap-6 my-10 " >
+    <div class=" grid grid-cols-1 md:grid-cols-3 gap-6 my-10 ">
         <div class="m-auto px-5 shadow-2xl py-16 rounded-xl">
         <img
         src="/public/medicina1.svg"
@@ -83,36 +50,39 @@ import ButtonMain from "../misc/ButtonMain.astro";
         </p>
         </div>
 
-    </div>
-    <div class=" grid grid-cols-1 md:grid-cols-2 gap-6 my-10  ">
-
-            <img src="/public/fotodeambiente.svg" 
-            alt="Ambiente"
-            class="relative w-auto mx-auto  "
-            />
-        
-        <div>
-        <h2 class="text-3xl text-violet-500 py-14 ">
-            Ambiente Confortable
-        </h2>
-        <p class="text-muted-500 dark:text-muted-400 font-medium">Sabemos lo importante que es tu comodidad, por lo que hemos diseñado un espacio tranquilo
-             y relajante,
-             donde podrás sentirte en confianza durante todo el proceso.</p>
-        </div>
-
-    </div>
-    
-        <div class="bg-muted-900 dark:bg-muted-200  rounded-lg mx-20 py-20">
-          
-          <div class="w-full m-auto text-muted-100 dark:text-muted-800 p-10">
-            <h1 class="text-3xl font-semibold mb-7 text-center ">Tu Belleza, Nuestra Prioridad</h1>
-
-            <p class="text-muted-100 dark:text-muted-800 font-extralight text-center">En nuestra clínica, no solo nos dedicamos a mejorar tu apariencia,
-                 sino a brindarte una experiencia de transformación y bienestar integral. Cada tratamiento está pensado para potenciar tu confianza
-                 y ayudarte a sentirte mejor contigo mismo/a.
-            </p>  
-          </div>
-
-        </div>
-
 </div>
+    </div>
+        <div class=" grid grid-cols-1 md:grid-cols-2 gap-6 my-10  " data-aos="fade-up"
+        data-aos-anchor-placement="top-center" data-aos-duration="1500" data-aos-delay="0" data-aos-easing=" ease-in">
+
+                <img src="/public/fotodeambiente.svg" 
+                alt="Ambiente"
+                class="relative w-auto mx-auto  "
+                />
+            
+            <div >
+            <h2 class="text-3xl text-violet-500 py-14 ">
+                Ambiente Confortable
+            </h2>
+            <p class="text-muted-500 dark:text-muted-400 font-medium">Sabemos lo importante que es tu comodidad, por lo que hemos diseñado un espacio tranquilo
+                y relajante,
+                donde podrás sentirte en confianza durante todo el proceso.</p>
+            </div>
+
+        </div>
+        
+            <div class="bg-muted-900 dark:bg-muted-200  rounded-lg mx-20 py-20" data-aos="fade-up"
+            data-aos-anchor-placement="top-center" data-aos-duration="1500" data-aos-delay="0" data-aos-easing=" ease-in">
+            
+            <div class="w-full m-auto text-muted-100 dark:text-muted-800 p-10">
+                <h1 class="text-3xl font-semibold mb-7 text-center ">Tu Belleza, Nuestra Prioridad</h1>
+
+                <p class="text-muted-100 dark:text-muted-800 font-extralight text-center">En nuestra clínica, no solo nos dedicamos a mejorar tu apariencia,
+                    sino a brindarte una experiencia de transformación y bienestar integral. Cada tratamiento está pensado para potenciar tu confianza
+                    y ayudarte a sentirte mejor contigo mismo/a.
+                </p>  
+            </div>
+
+            
+        </div>
+    </div>

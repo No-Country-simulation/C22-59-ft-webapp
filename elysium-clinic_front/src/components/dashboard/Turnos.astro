@@ -1,0 +1,75 @@
+---
+import DashboardLayout from "../../layouts/DashboardLayout.astro"
+---
+<DashboardLayout title=""> 
+
+	<div class="  mt-20 mx-auto">
+		<div class="">
+			<h1 class="text-3xl font-bold text-primary-600 flex justify-center items-center mt-10 gap-5"> Historial de Turnos<span><img class="w-12 h-12" src="../../../public/calendario-turnos.svg" alt=""></span></h1>
+		</div>
+		
+	</div>
+
+
+		<div
+			class="bg-white shadow-lg rounded-2xl p-8 mt-20 mb-20 flex flex-col items-start w-full"
+		>
+			<div class="w-full flex justify-between items-center mb-4">
+				<h2 class="text-2xl font-semibold">Historial de Citas</h2>
+				<div class="flex space-x-4">
+					
+					<select
+						id="statusFilter"
+						class="px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+					>
+						<option value="">Todos los estados</option>
+						<option value="Reservado">Reservado</option>
+						<option value="Completado">Completado</option>
+						<option value="Cancelado">Cancelado</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="overflow-x-auto w-full">
+				<table id="appointmentsTable" class="w-full">
+					<thead class="bg-gray-100">
+						<tr>
+							<th class="text-left p-3">Paciente</th>
+							<th class="text-left p-3">Fecha</th>
+							<th class="text-left p-3">Hora</th>
+							<th class="text-left p-3">Estado</th>
+						</tr>
+					</thead>
+					<tbody id="tableBody" class="divide-y divide-gray-200">
+						<!-- Las filas se generarán dinámicamente -->
+					</tbody>
+				</table>
+
+				<!-- Paginación -->
+				<div
+					id="pagination"
+					class="flex justify-between items-center mt-4"
+				>
+					<span id="pageInfo" class="text-gray-600"></span>
+					<div class="space-x-2">
+						<button
+							id="prevPage"
+							class="px-3 py-1 bg-gray-200 rounded-md hover:bg-gray-300"
+						>
+							Anterior
+						</button>
+						<button
+							id="nextPage"
+							class="px-3 py-1 bg-gray-200 rounded-md hover:bg-gray-300"
+						>
+							Siguiente
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</DashboardLayout>
+
+
