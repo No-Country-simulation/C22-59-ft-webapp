@@ -23,17 +23,6 @@ export const get = async (id: string) => {
   }
 };
 
-export const getById = async (id: string) => {
-  try {
-    const doctor = await doctorModel.findById(id);
-    if (!doctor)
-      throw new Error("Doctor no econtrado");
-    return doctor;
-  } catch (error: any) {
-    throw new Error(`Error devolviendo doctor por ID: ${error.message}`);
-  }
-};
-
 export const getAll = async () => {
   try {
     const doctors = await doctorModel.find();
@@ -66,10 +55,9 @@ export const update = async (id: string, doctor: IDoctor) => {
   }
 };
 
-export const deleteDoctorById = async (id: string) => {
+export const deleteById = async (id: string) => {
   try {
     const deletedDoctor = await doctorModel.findByIdAndDelete(id);
-    return deletedDoctor;
   } catch (error: any) {
     throw new Error(`Error eliminando doctor por ID: ${error.message}`);
   }

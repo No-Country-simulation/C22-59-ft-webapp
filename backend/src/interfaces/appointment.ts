@@ -4,12 +4,12 @@ export interface WorkingHours {
   daysOff: string[]; // Ejemplo: ['Sunday', 'Saturday']
 }
 
-export interface CreateAppointmentDTO {
+export interface IAppointment {
   date: string; // Formato YYYY-MM-DD
   time: string; // Formato HH:mm
   status: string;
   doctorId: string;
   userId: string;
-  reason: string;
+  reason?: string;
   notes?: string;
 }
