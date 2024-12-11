@@ -1,5 +1,5 @@
 ## 🚀 **Inicio**  
-Hola, soy [tu nombre], y hoy les quiero presentar una solución que puede transformar la manera en que su clínica opera día a día: *Elysium Clinic*.  
+Hola, hoy les quiero presentar una solución que puede transformar la manera en que su clínica opera día a día: *Elysium Clinic*.  
 
 ## 🎯 **Misión**  
 Nuestra misión es ayudar a las clínicas a maximizar su eficiencia operativa, mejorar la experiencia de sus pacientes y facilitar el trabajo de su equipo médico y administrativo.  
