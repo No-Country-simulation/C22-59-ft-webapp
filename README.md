@@ -64,7 +64,6 @@ Elysium Clinic es una aplicación web que permite a los pacientes registrarse y 
     npm run dev
     ```
     2. En el directorio 'elysium-clinic_front' ejecutar:
-    - Instalar dependencias:
     ```sh
     npm install
     npm run dev
@@ -81,15 +80,15 @@ Elysium Clinic es una aplicación web que permite a los pacientes registrarse y 
 
 ### 📷 Capturas de Pantalla
 
-#### 🔗[Figma](https://www.figma.com/file/3a3c0c3d3e9c4c6c9f3f2c5d0f0e0d0c/No-Country?node-id=0%3A1)
+#### 🔗[Figma](https://www.figma.com/design/fhiw8yyKNZ38zrYP6vjX1K/elysium)
 
 | Pantalla | Descripción |
 |----------|-------------|
 | ![Inicio](./docs/screenshots/inicio.png) | Inicio |
 | ![Registro de usuario](./docs/screenshots/registro-usuario.png) | Registro de usuario |
-| ![Registro de medico](./docs/screenshots/registro-medico.png) | Registro de medico |
 | ![Login](./docs/screenshots/login.png) | Login |
 | ![Gestión de citas](./docs/screenshots/gestion-citas.png) | Gestión de citas |
+| ![Gestión de turnos](./docs/screenshots/gestion-citas-2.png) | Gestión de turnos |
 | ![Gestión de usuarios](./docs/screenshots/gestion-usuarios.png) | Gestión de usuarios |
 | ![Gestión de medicos](./docs/screenshots/gestion-medicos.png) | Gestión de medicos |
 
