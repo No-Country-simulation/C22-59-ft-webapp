@@ -23,8 +23,12 @@ import ButtonMain from "./misc/ButtonMain.astro";
                 id="password"
                 required
             />
-            <span class="text-end py-4"> <a class="text-primary-500 font-medium" href="">Olvidaste tu contraseña?</a></span>
-            <ButtonMain type="submit">Ingresar</ButtonMain>
+            <button
+                class="relative font-sans font-normal  inline-flex items-center justify-center leading-5 no-underline space-x-1 text-white bg-primary-600 h-12 px-5 py-3 text-sm rounded-full hover:bg-primary-700 hover:shadow-xl hover:shadow-primary-600/20 tw-accessibility transition-all duration-300"
+                type="submit"
+            >
+                Ingresar
+            </button>
             <span class="mt-20 text-end ">¿No tienes una cuenta? <a class="text-primary-500 font-medium" href="/registro" >Registrate</a></span>
         </form>
     </div>
@@ -36,7 +40,7 @@ import ButtonMain from "./misc/ButtonMain.astro";
             
             loginForm?.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                
+                console.log("Loding...");
                 const email = (document.getElementById('email') as HTMLInputElement).value;
                 const password = (document.getElementById('password') as HTMLInputElement).value;
                 

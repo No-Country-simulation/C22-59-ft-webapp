@@ -21,6 +21,7 @@
     "aos": "^2.3.4",
     "astro": "^5.0.0-beta.8",
     "autoprefixer": "^10.4.20",
+    "elysium-clinic-front": "file:",
     "iconify-icon": "^2.1.0",
     "postcss": "^8.4.49",
     "swiper": "^11.1.15",
