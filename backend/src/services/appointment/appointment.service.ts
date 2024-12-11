@@ -5,6 +5,7 @@ import User from '@models/users/user.model';
 import { isWithinWorkingHours, isValidAppointmentTime, TIME_SLOT_DURATION } from '@helpers/appointments/timeValidation';
 import moment from 'moment';
 import { CreateAppointmentDTO } from '@interfaces/appointment';
+import { get as getDoctor } from '@services/doctor/doctor.service';
 
 export class AppointmentService {
   static async createAppointment(

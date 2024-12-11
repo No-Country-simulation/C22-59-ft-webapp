@@ -2,11 +2,11 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import path from "path";
-import swaggerDocs from "./docs/swagger";
+import swaggerDocs from "src/docs/swagger";
 import appointmentRoutes from "@routes/appointment/appointment.routes";
-import initDB from "../src/db/db";
-import userRoutes from "../src/routes/user/user.routes";
-import administratorRoutes from "../src/routes/administrator/administrator.routes";
+import initDB from "src/db/db";
+import userRoutes from "src/routes/user/user.routes";
+import administratorRoutes from "src/routes/administrator/administrator.routes";
 
 const app = express();
 app.use(cors());
@@ -30,16 +30,16 @@ const PORT = Number(process.env.PORT) || 4000;
  *               type: string
  */
 app.get("/", (req, res) => {
-  res.sendFile("index.html");
+	res.sendFile("index.html");
 });
 
-app.use('/api/appointments', appointmentRoutes);
+app.use("/api/appointments", appointmentRoutes);
 app.use("/api", userRoutes);
 app.use("/api", administratorRoutes);
 
 app.listen(PORT, (): void => {
-  swaggerDocs(app);
-  console.log(`Server running on port ${PORT}`);
+	swaggerDocs(app);
+	console.log(`Server running on port ${PORT}`);
 });
 
 initDB();

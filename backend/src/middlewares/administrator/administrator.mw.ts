@@ -1,5 +1,5 @@
-import { existByEmail } from "../../services/administrator/administrator.service";
-import { Request, Response, NextFunction } from "express";
+import {existByEmail} from "@services/administrator/administrator.service";
+import {Request, Response, NextFunction} from "express";
 
 export const isAdministrator = async (
 	req: Request,
@@ -9,12 +9,10 @@ export const isAdministrator = async (
 	try {
 		const {email} = req.body;
 
-        if(await existByEmail(email))
+		if (await existByEmail(email))
 			return res.redirect(307, "/api/administrator/auth/login");
-
-    } catch (err: any) {
+	} catch (err: any) {
 		next();
 	}
 	next();
-	
 };

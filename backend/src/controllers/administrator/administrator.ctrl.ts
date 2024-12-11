@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import { administratorSchema } from "../../helpers/administrator/schema.validator";
-import { IAdministrator } from "../../interfaces/administrator";
-import { create,login } from "../../services/administrator/administrator.service";
-import { createToken } from "../../helpers/token/token.creator";
-import {HttpResponse} from "../../helpers/error/validation.error";
+import { administratorSchema } from "@helpers/administrator/schema.validator";
+import { IAdministrator } from "@interfaces/administrator";
+import { create,login } from "@services/administrator/administrator.service";
+import { createToken } from "@helpers/token/token.creator";
+import {HttpResponse} from "@helpers/error/validation.error";
 import bcrypt from "bcrypt";
 const httpResponse = new HttpResponse();
 export const createAdministrator = async (

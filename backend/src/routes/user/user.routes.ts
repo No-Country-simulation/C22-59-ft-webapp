@@ -1,13 +1,13 @@
-import { Router } from "express";
-import { validateToken } from "../../helpers/token/token.validator";
+import {Router} from "express";
+import {validateToken} from "@helpers/token/token.validator";
 import {
-  createUser,
-  loginUser,
-  getUsers,
-  getUserById,
-  deleteUserById,
-} from "../../controllers/users/user.ctrl";
-import { isAdministrator } from "../../middlewares/administrator/administrator.mw";
+	createUser,
+	loginUser,
+	getUsers,
+	getUserById,
+	deleteUserById,
+} from "@controllers/users/user.ctrl";
+import {isAdministrator} from "@middlewares/administrator/administrator.mw";
 
 const router = Router();
 
