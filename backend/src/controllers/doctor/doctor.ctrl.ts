@@ -3,23 +3,47 @@ import {
 	get,
 	getAll,
 	update,
-	deleteById
+	deleteById,
+	login
 } from "@services/doctor/doctor.service";
 import {Request, Response} from "express";
 import {doctorSchema} from "@helpers/doctor/schema.validator";
 import {IDoctor} from "@interfaces/doctor";
 import {HttpResponse} from "@helpers/error/validation.error";
+import {createToken} from "@helpers/token/token.creator";
+import bcrypt from "bcrypt";
 
 const httpResponse = new HttpResponse();
+
 export const createDoctor = async ({body}: Request, res: Response): Promise<any> => {
 	try {
 		const {error, value} = doctorSchema.validate(body);
 		if (error) {
 			return httpResponse.BadRequest(res, error.details[0].message);
 		}
-		const doctor = value as IDoctor;
+		const {password, ...rest} = value;
+		const hashedPassword = await bcrypt.hash(password, 10);
+		const doctor = {...rest, password: hashedPassword} as IDoctor;
 		const createdDoctor = await create(doctor);
 		return httpResponse.Ok(res, createdDoctor);
+	} catch (error: any) {
+		return httpResponse.Error(res, {
+			message: "No se pudo crear el doctor",
+			error: error.message,
+		});
+	}
+};
+
+export const loginDoctor = async ({body}: Request, res: Response): Promise<any> => {
+	const {email, password} = body;
+	const {error, value} = doctorSchema.validate({email, password});
+	if (error) {
+		return httpResponse.BadRequest(res, error.details[0].message);
+	}
+	try {
+		const doctor = await login(email, password);
+		const token = await createToken(doctor);
+		return httpResponse.Ok(res, {token});
 	} catch (error: any) {
 		return httpResponse.Error(res, {
 			message: "No se pudo crear el doctor",

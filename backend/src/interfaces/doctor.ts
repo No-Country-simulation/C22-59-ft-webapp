@@ -4,7 +4,7 @@ export interface IDoctor {
 	surname: string;
 	nationalId: string;
 	email: string;
-	password?: string;
+	password: string;
 	telephone: string;
 	optionalTelephone?: string;
 	blood?: string;

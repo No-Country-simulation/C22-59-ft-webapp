@@ -5,6 +5,7 @@ import {
 	getDoctors,
 	updateDoctor,
 	deleteDoctorById,
+	loginDoctor,
 } from "@controllers/doctor/doctor.ctrl";
 import {validateToken} from "@helpers/token/token.validator";
 
@@ -77,7 +78,8 @@ const router = Router();
  * /api/doctors/auth/register:
  *   post:
  *     summary: Create a new DOCTOR
- *     security: []
+ *     security:
+ *       - bearerAuth: []
  *     tags: [DOCTOR]
  *     requestBody:
  *       required: true
@@ -97,7 +99,7 @@ const router = Router();
  *       500:
  *         description: Error creating the DOCTOR
  */
-router.post("/doctors/auth/register",validateToken, createDoctor);
+router.post("/doctors/auth/register", validateToken, createDoctor);
 
 /**
  * @swagger
@@ -122,7 +124,7 @@ router.post("/doctors/auth/register",validateToken, createDoctor);
  *       500:
  *         description: Error when LOGGING IN DOCTOR
  */
-router.post("/doctors/auth/login", getDoctorById);
+router.post("/doctors/auth/login", loginDoctor);
 
 /**
  * @swagger

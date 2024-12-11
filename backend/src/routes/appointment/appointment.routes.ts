@@ -7,7 +7,7 @@ const router = Router();
 /**
  * @swagger
  * tags:
- *   name: Appointments
+ *   name: APPOINTMENTS
  *   description: Gestión de citas médicas
  */
 
@@ -16,7 +16,7 @@ const router = Router();
  * /api/appointments:
  *   post:
  *     summary: Crear una nueva cita
- *     tags: [Appointments]
+ *     tags: [APPOINTMENTS]
  *     requestBody:
  *       required: true
  *       content:
@@ -70,7 +70,7 @@ router.post('/', validateRequest(appointmentSchema), AppointmentController.creat
  * /api/appointments/available-slots:
  *   get:
  *     summary: Obtener horarios disponibles para un doctor en una fecha específica
- *     tags: [Appointments]
+ *     tags: [APPOINTMENTS]
  *     parameters:
  *       - in: query
  *         name: doctorId
@@ -104,7 +104,7 @@ router.get('/available-slots', AppointmentController.getAvailableSlots);
  * /api/appointments/{id}/status:
  *   patch:
  *     summary: Actualizar el estado de una cita
- *     tags: [Appointments]
+ *     tags: [APPOINTMENTS]
  *     parameters:
  *       - in: path
  *         name: id
@@ -136,7 +136,7 @@ router.patch('/:id/status', AppointmentController.updateAppointmentStatus);
  * /api/appointments/user/{userId}:
  *   get:
  *     summary: Obtener todas las citas de un usuario
- *     tags: [Appointments]
+ *     tags: [APPOINTMENTS]
  *     parameters:
  *       - in: path
  *         name: userId
@@ -163,7 +163,7 @@ router.get('/user/:userId', AppointmentController.getUserAppointments);
  * /api/appointments/doctor/{doctorId}:
  *   get:
  *     summary: Obtener todas las citas de un doctor
- *     tags: [Appointments]
+ *     tags: [APPOINTMENTS]
  *     parameters:
  *       - in: path
  *         name: doctorId
@@ -202,7 +202,7 @@ router.get('/doctor/:doctorId', AppointmentController.getDoctorAppointments);
  * /api/appointments/{id}/cancel:
  *   post:
  *     summary: Cancelar una cita
- *     tags: [Appointments]
+ *     tags: [APPOINTMENTS]
  *     parameters:
  *       - in: path
  *         name: id

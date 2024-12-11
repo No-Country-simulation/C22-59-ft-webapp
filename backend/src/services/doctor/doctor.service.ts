@@ -1,7 +1,28 @@
 import doctorModel from "@models/doctor/doctor.model";
 import { IDoctor } from "@interfaces/doctor";
+import bcrypt from "bcrypt";
 
+export const login = async (email: string, password: string) => {
+  try {
+    const doctorByEmail = await doctorModel.findOne({ email});
+    if (!doctorByEmail)
+      throw new Error("No existe doctor con ese email");
 
+    if (!await bcrypt.compare(password, doctorByEmail.password))
+      throw new Error("Contraseña incorrecta");
+
+    return doctorByEmail;
+  } catch (error: any) {
+    throw new Error(`Error al loguear doctor: ${error.message}`);
+  }
+}
+export const existByEmail = async (email: string): Promise<boolean> => {
+  try {
+    return !!(await doctorModel.findOne({email}));
+  } catch (error: any) {
+    throw new Error("Internal Server Error");
+  }
+};
 export const create = async (doctor: IDoctor) => {
   try {
     const createdDoctor = await doctorModel.create(doctor);

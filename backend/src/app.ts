@@ -7,6 +7,7 @@ import appointmentRoutes from "@routes/appointment/appointment.routes";
 import initDB from "src/db/db";
 import userRoutes from "src/routes/user/user.routes";
 import administratorRoutes from "src/routes/administrator/administrator.routes";
+import doctorRoutes from "src/routes/doctor/doctor.routes";
 
 const app = express();
 app.use(cors());
@@ -36,6 +37,7 @@ app.get("/", (req, res) => {
 app.use("/api/appointments", appointmentRoutes);
 app.use("/api", userRoutes);
 app.use("/api", administratorRoutes);
+app.use("/api", doctorRoutes);
 
 app.listen(PORT, (): void => {
 	swaggerDocs(app);

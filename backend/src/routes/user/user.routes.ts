@@ -8,7 +8,7 @@ import {
 	deleteUserById,
 } from "@controllers/users/user.ctrl";
 import {isAdministrator} from "@middlewares/administrator/administrator.mw";
-
+import {isDoctor} from "@middlewares/doctor/doctor.mw";
 const router = Router();
 
 /**
@@ -148,7 +148,7 @@ router.post("/users/auth/register", createUser);
  *       500:
  *         description: Error when LOGGING IN USER
  */
-router.post("/users/auth/login", isAdministrator, loginUser);
+router.post("/users/auth/login", isAdministrator, isDoctor, loginUser);
 
 /**
  * @swagger
