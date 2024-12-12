@@ -1,7 +1,14 @@
-import { Router } from "express";
-import { createUser, loginUser, getUsers, getUserById, deleteUserById } from "../../controllers/users/user.ctrl";
-
-
+import {Router} from "express";
+import {validateToken} from "@helpers/token/token.validator";
+import {
+	createUser,
+	loginUser,
+	getUsers,
+	getUserById,
+	deleteUserById,
+} from "@controllers/users/user.ctrl";
+import {isAdministrator} from "@middlewares/administrator/administrator.mw";
+import {isDoctor} from "@middlewares/doctor/doctor.mw";
 const router = Router();
 
 /**
@@ -60,12 +67,9 @@ const router = Router();
  *           type: string
  *           description: USER's gender
  *           enum:
- *             - Male
- *             - Female
- *             - Other
- *         appointment:
- *           type: string
- *           description: Appointment date or identifier
+ *             - Masculino
+ *             - Femenino
+ *             - Otro
  *       example:
  *         birthday: "1990-01-01"
  *         name: "Cristian"
@@ -76,9 +80,8 @@ const router = Router();
  *         telephone: "+123456789"
  *         optionalTelephone: "+987654321"
  *         blood: "O+"
- *         gender: "Male"
- *         appointment: "2024-11-01T10:00:00Z"
- * 
+ *         gender: "Masculino"
+ *
  *     Login:
  *       type: object
  *       required:
@@ -99,6 +102,7 @@ const router = Router();
  * /api/users/auth/register:
  *   post:
  *     summary: Create a new USER
+ *     security: []
  *     tags: [USER]
  *     requestBody:
  *       required: true
@@ -125,6 +129,7 @@ router.post("/users/auth/register", createUser);
  * @swagger
  * /api/users/auth/login:
  *   post:
+ *     security: []
  *     summary: Login USER
  *     tags: [USER]
  *     requestBody:
@@ -143,7 +148,7 @@ router.post("/users/auth/register", createUser);
  *       500:
  *         description: Error when LOGGING IN USER
  */
-router.post("/users/auth/login", loginUser);
+router.post("/users/auth/login", isAdministrator, isDoctor, loginUser);
 
 /**
  * @swagger
@@ -161,7 +166,7 @@ router.post("/users/auth/login", loginUser);
  *       500:
  *         description: Error when fetching USERS
  */
-router.get("/users", getUsers);
+router.get("/users", validateToken, getUsers);
 
 /**
  * @swagger
@@ -190,7 +195,7 @@ router.get("/users", getUsers);
  *       500:
  *         description: Error fetching USER
  */
-router.get("/users/:id", getUserById);
+router.get("/users/:id", validateToken, getUserById);
 
 /**
  * @swagger
@@ -214,6 +219,6 @@ router.get("/users/:id", getUserById);
  *       500:
  *         description: Error when deleting USER
  */
-router.delete("/users/:id", deleteUserById);
+router.delete("/users/:id", validateToken, deleteUserById);
 
 export default router;
