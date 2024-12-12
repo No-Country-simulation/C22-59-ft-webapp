@@ -10,8 +10,7 @@ import Elegirnos from '../components/Secciones/Porque_elegirnos.astro';
 ---
 
 <Layout title="Elysium clinic">
-		<main class="flex flex-col items-center justify-center" transition:name="root"
-		transition:animate="initial"
+		<main class="flex flex-col items-center justify-center"
 		>
 			<Navbar/>
 			<HeroMain />
@@ -22,3 +21,9 @@ import Elegirnos from '../components/Secciones/Porque_elegirnos.astro';
 		</main>
 </Layout>
 
+<script>
+	
+	  localStorage.removeItem('accessToken');
+	  
+	  console.log('logout')
+</script>

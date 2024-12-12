@@ -1,3 +1,6 @@
+
+
+
 <div
 	id="sidebar"
 	class="fixed top-0 left-0 h-full w-80 bg-white shadow-lg transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-50 "
@@ -157,7 +160,7 @@
 			>
 			Perfil
 		</a>
-		<a href="/login" id="logoutButton" class="flex items-center p-4 hover:bg-[#a8a0f7b9] rounded-3xl">
+		<a href="/" id="logoutButton"  class="flex items-center p-4 hover:bg-[#a8a0f7b9] rounded-3xl">
 			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M4.66667 18C4.20833 18 3.81611 17.8369 3.49 17.5108C3.16389 17.1847 3.00056 16.7922 3 16.3333V4.66667C3 4.20833 3.16333 3.81611 3.49 3.49C3.81667 3.16389 4.20889 3.00056 4.66667 3H10.5V4.66667H4.66667V16.3333H10.5V18H4.66667ZM13.8333 14.6667L12.6875 13.4583L14.8125 11.3333H8V9.66667H14.8125L12.6875 7.54167L13.8333 6.33333L18 10.5L13.8333 14.6667Z" fill="black"/>
 				</svg>
@@ -188,6 +191,7 @@
 >
 <slot />
 
+
 <script>
 	const sidebar = document.getElementById("sidebar");
 	const menuToggle = document.getElementById("menuToggle");
@@ -210,14 +214,16 @@
 		}
 	});
 
-	document.getElementById('logoutButton')?.addEventListener('click', () => {
-        // Eliminar el token de localStorage
-        localStorage.removeItem('accessToken');
-		console.log('hola')
-		// Redirigir al login
+	// document.getElementById('logoutButton')?.addEventListener('click', () => {
+    //     // Eliminar el token de localStorage
+    //     localStorage.removeItem('accessToken');
+		
+	// 	// Redirigir al login
 		
         
-        // Opcional: Redirigir al login
-        window.location.href = '/login';
-    });
+    //     // Opcional: Redirigir al login
+    //     window.location.href = '/login';
+    // });
+
+	
 </script>
