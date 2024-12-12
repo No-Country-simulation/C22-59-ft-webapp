@@ -4,6 +4,7 @@ import {create, get, getById} from "@services/user/user.service";
 import {userSchema, loginSchema} from "@helpers/user/schema.validator";
 import {login} from "@services/user/user.service";
 import {createToken} from "@helpers/token/token.creator";
+import {emailExists} from "@helpers/validator.roles";
 import bcrypt from "bcrypt";
 import userModel from "@models/users/user.model";
 
@@ -21,6 +22,11 @@ export const createUser = async (
 		const {password, ...rest} = value;
 		const hashedPassword = await bcrypt.hash(password, 10);
 		const user = {...rest, password: hashedPassword};
+		
+		if (await emailExists(user.email)) {
+			return httpResponse.BadRequest(res, "Email ya existe");
+		}
+
 		const createdUser = await create(user);
 		const userObject = createdUser.toObject();
 		const {password: _, ...restData} = userObject;

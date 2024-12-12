@@ -4,26 +4,44 @@ import {
 	getAll,
 	update,
 	deleteById,
-	login
+	login,
 } from "@services/doctor/doctor.service";
 import {Request, Response} from "express";
 import {doctorSchema} from "@helpers/doctor/schema.validator";
 import {IDoctor} from "@interfaces/doctor";
 import {HttpResponse} from "@helpers/error/validation.error";
 import {createToken} from "@helpers/token/token.creator";
+import {emailExists} from "@helpers/validator.roles";
 import bcrypt from "bcrypt";
+import { loginSchema } from "@helpers/user/schema.validator";
 
 const httpResponse = new HttpResponse();
 
-export const createDoctor = async ({body}: Request, res: Response): Promise<any> => {
+export const createDoctor = async (
+	{body}: Request,
+	res: Response
+): Promise<any> => {
 	try {
-		const {error, value} = doctorSchema.validate(body);
+		const {error, value} = doctorSchema.validate({
+			...body,
+			workingHours: {
+				start: "08:00",
+				end: "05:00",
+				daysOff: ["Saturday", "Sunday"],
+			},
+		});
+
 		if (error) {
 			return httpResponse.BadRequest(res, error.details[0].message);
 		}
 		const {password, ...rest} = value;
 		const hashedPassword = await bcrypt.hash(password, 10);
 		const doctor = {...rest, password: hashedPassword} as IDoctor;
+
+		if (await emailExists(doctor.email)) {
+			return httpResponse.BadRequest(res, "Email ya existe");
+		}
+
 		const createdDoctor = await create(doctor);
 		return httpResponse.Ok(res, createdDoctor);
 	} catch (error: any) {
@@ -34,9 +52,13 @@ export const createDoctor = async ({body}: Request, res: Response): Promise<any>
 	}
 };
 
-export const loginDoctor = async ({body}: Request, res: Response): Promise<any> => {
+export const loginDoctor = async (
+	{body}: Request,
+	res: Response
+): Promise<any> => {
 	const {email, password} = body;
-	const {error, value} = doctorSchema.validate({email, password});
+	console.log("VALIDANDO DOCTOR");
+	const {error} = loginSchema.validate({email, password});
 	if (error) {
 		return httpResponse.BadRequest(res, error.details[0].message);
 	}
@@ -51,7 +73,10 @@ export const loginDoctor = async ({body}: Request, res: Response): Promise<any> 
 		});
 	}
 };
-export const getDoctorById = async ({params}: Request, res: Response): Promise<any> => {
+export const getDoctorById = async (
+	{params}: Request,
+	res: Response
+): Promise<any> => {
 	try {
 		const doctor = await get(params.id);
 		return httpResponse.Ok(res, doctor);
@@ -73,7 +98,10 @@ export const getDoctors = async (_: Request, res: Response): Promise<any> => {
 		});
 	}
 };
-export const updateDoctor = async ({body, params}: Request, res: Response): Promise<any> => {
+export const updateDoctor = async (
+	{body, params}: Request,
+	res: Response
+): Promise<any> => {
 	try {
 		const {error, value} = doctorSchema.validate(body);
 		if (error) {
@@ -89,7 +117,10 @@ export const updateDoctor = async ({body, params}: Request, res: Response): Prom
 		});
 	}
 };
-export const deleteDoctorById = async ({params}: Request, res: Response): Promise<any> => {
+export const deleteDoctorById = async (
+	{params}: Request,
+	res: Response
+): Promise<any> => {
 	try {
 		deleteById(params.id);
 		return httpResponse.Ok(res);

@@ -35,7 +35,13 @@ export const get = async () => {
 		throw new Error(`Error getting users: ${error.message}`);
 	}
 };
-
+export const existByEmail = async (email: String): Promise<boolean> => {
+	try {
+		return !!(await User.findOne({email}));
+	} catch (error: any) {
+		throw new Error(`Error getting users: ${error.message}`);
+	}
+};
 export const getById = async (id: string) => {
 	try {
 		const usersData = await User.findById(id);
