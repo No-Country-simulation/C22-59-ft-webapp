@@ -10,6 +10,9 @@ export const doctorSchema = Joi.object({
   specialty: Joi.string().required().messages({
     "any.required": "La especialidad es obligatoria.",
   }),
+  password: Joi.string().min(8).required().messages({
+    "string.min": "La contraseña debe tener al menos 8 caracteres.",
+  }),
   email: Joi.string().email().required(),
   telephone: Joi.string()
     .pattern(/^\+?[0-9]{7,15}$/)

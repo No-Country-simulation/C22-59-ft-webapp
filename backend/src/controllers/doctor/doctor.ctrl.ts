@@ -26,7 +26,7 @@ export const createDoctor = async (
 			...body,
 			workingHours: {
 				start: "08:00",
-				end: "05:00",
+				end: "17:00",
 				daysOff: ["Saturday", "Sunday"],
 			},
 		});
