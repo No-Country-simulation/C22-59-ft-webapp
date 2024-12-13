@@ -21,22 +21,26 @@ import DashboardLayout from "../../layouts/DashboardLayout.astro"
 <script>
 
 	const formTurno = document.getElementById('turnoForm') as HTMLFormElement;
+	
+	
 
 	formTurno?.addEventListener('submit', async (e) => {
 		e.preventDefault();
 
 	const date = (document.getElementById('date') as HTMLInputElement).value;
 	const time = (document.getElementById('time') as HTMLInputElement).value;
-	console.log(date)
+	// const user = await  fetch('http://localhost:4000/api/users/misael@gmail.com').then(res => res.json().then(data => data));
+	// console.log(user)
 	try {
 		const response = await fetch('http://localhost:4000/api/appointments', {
 		method: 'POST',
 		headers: {
-		'Content-Type': 'application/json'
+		'Content-Type': 'application/json',
+		'authorization':localStorage.getItem('accessToken')??"",
 		},
 			body: JSON.stringify({
-				doctor: "674444c504d490b9f61bc41e",
-				user: "6744448f04d490b9f61bc419",
+				doctor: '675b0d8b5898292b608ba711',
+				user: '6758b73ed2a028ea00477710',
 				date: date,
 				time: time,
 				status: "scheduled",
@@ -44,9 +48,10 @@ import DashboardLayout from "../../layouts/DashboardLayout.astro"
 				notes: "Nauseas y mareos"
 			})
 		});
-
+		
 	  	const data = await response.json();
 	  	console.log(data);
+		 
 	} catch (error) {
   		console.error('Error:', error);
 	}
@@ -54,4 +59,5 @@ import DashboardLayout from "../../layouts/DashboardLayout.astro"
 
 
 })
+
 </script>
