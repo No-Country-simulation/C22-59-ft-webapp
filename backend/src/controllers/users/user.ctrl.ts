@@ -4,7 +4,7 @@ import { create, get, getById } from "../../services/user/user.service";
 import { userSchema, loginSchema } from "../../helpers/user/schema.validator";
 import { login } from "../../services/user/user.service";
 import { createToken } from "../../helpers/token/token.creator";
-import bcrypt from "bcrypt";
+import bcryptjs from "bcryptjs";
 import userModel from "../../models/users/user.model";
 
 const httpResponse = new HttpResponse();
@@ -19,7 +19,7 @@ export const createUser = async (
       httpResponse.BadRequest(res, error.details[0].message);
     }
     const { password, ...rest } = value;
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcryptjs.hash(password, 10);
     const user = { ...rest, password: hashedPassword };
     const createdUser = await create(user);
     const userObject = createdUser.toObject();

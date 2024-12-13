@@ -4,7 +4,7 @@ import { IAdministrator } from "../../interfaces/administrator";
 import { create,login } from "../../services/administrator/administrator.service";
 import { createToken } from "../../helpers/token/token.creator";
 import {HttpResponse} from "../../helpers/error/validation.error";
-import bcrypt from "bcrypt";
+import bcryptjs from "bcryptjs";
 const httpResponse = new HttpResponse();
 export const createAdministrator = async (
     {body}: Request,
@@ -17,7 +17,7 @@ export const createAdministrator = async (
       return httpResponse.BadRequest(res, error.details[0].message);
     }
     const { password, ...rest } = value;
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcryptjs.hash(password, 10);
     const administrator = { ...rest, password: hashedPassword } as IAdministrator;
     const createdAdministrator = await create(administrator);
     return httpResponse.Ok(res, createdAdministrator);

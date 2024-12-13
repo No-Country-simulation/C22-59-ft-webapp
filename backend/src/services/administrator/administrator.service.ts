@@ -1,6 +1,6 @@
 import { IAdministrator } from "../../interfaces/administrator";
 import Administrator from "../../models/administrator/administrator.model";
-import bcrypt from "bcrypt";
+import bcryptjs from "bcryptjs";
 
 export const create = async(administrator: IAdministrator) => {
   try {
@@ -24,7 +24,7 @@ export const login = async (email: string, password: string) => {
 		if (!user)
 			throw new Error("Invalid email or password");
 		
-		const isPasswordMatch = await bcrypt.compare(password, user.password);
+		const isPasswordMatch = await bcryptjs.compare(password, user.password);
 		if (!isPasswordMatch)
 			throw new Error("Invalid email or password");
 		

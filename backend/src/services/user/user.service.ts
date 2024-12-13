@@ -1,6 +1,6 @@
 import { IUser } from "../../interfaces/user";
 import User from "../../models/users/user.model";
-import bcrypt from "bcrypt";
+import bcryptjs from "bcryptjs";
 
 export const create = async (user: IUser) => {
   try {
@@ -17,7 +17,7 @@ export const login = async (email: string, password: string) => {
     if (!user) {
       throw new Error("Invalid email or password");
     }
-    const isPasswordMatch = await bcrypt.compare(password, user.password);
+    const isPasswordMatch = await bcryptjs.compare(password, user.password);
     if (!isPasswordMatch) {
       throw new Error("Invalid email or password");
     }
