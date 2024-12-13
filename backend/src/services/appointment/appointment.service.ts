@@ -5,7 +5,7 @@ import User from '@models/users/user.model';
 import { isWithinWorkingHours, isValidAppointmentTime, TIME_SLOT_DURATION } from '@helpers/appointments/timeValidation';
 import moment from 'moment';
 import {IAppointment} from "@interfaces/appointment";
-
+import {ErrorAppointment} from "@helpers/error/appointment.error";
 export class AppointmentService {
 	static async createAppointment(
 		createAppointmentDTO: IAppointment
@@ -43,12 +43,12 @@ export class AppointmentService {
 		date: Date
 	): Promise<Date[]> {
 		if (!Types.ObjectId.isValid(doctorId)) {
-			throw new Error("ID de doctor inválido");
+			throw new ErrorAppointment("ID de doctor inválido");
 		}
 
 		const doctor = await Doctor.findById(doctorId);
 		if (!doctor) {
-			throw new Error("Doctor no encontrado");
+			throw new ErrorAppointment("Doctor no encontrado");
 		}
 		doctor.workingHours = doctor.workingHours ?? {
 			start: "09:00",
@@ -77,12 +77,12 @@ export class AppointmentService {
 		status: "scheduled" | "completed" | "cancelled"
 	): Promise<any> {
 		if (!Types.ObjectId.isValid(appointmentId)) {
-			throw new Error("ID de cita inválido");
+			throw new ErrorAppointment("ID de cita inválido");
 		}
 
 		const appointment = await Appointment.findById(appointmentId);
 		if (!appointment) {
-			throw new Error("Cita no encontrada");
+			throw new ErrorAppointment("Cita no encontrada");
 		}
 
 		// Validar cambios de estado permitidos
@@ -93,7 +93,7 @@ export class AppointmentService {
 		};
 
 		if (!validTransitions[appointment.status].includes(status)) {
-			throw new Error(
+			throw new ErrorAppointment(
 				`No se puede cambiar el estado de ${appointment.status} a ${status}`
 			);
 		}
@@ -106,7 +106,7 @@ export class AppointmentService {
 
 	static async getUserAppointments(userId: string): Promise<any[]> {
 		if (!Types.ObjectId.isValid(userId)) {
-			throw new Error("ID de usuario inválido");
+			throw new ErrorAppointment("ID de usuario inválido");
 		}
 
 		return Appointment.find({user: userId})
@@ -120,7 +120,7 @@ export class AppointmentService {
 		status?: string
 	): Promise<any[]> {
 		if (!Types.ObjectId.isValid(doctorId)) {
-			throw new Error("ID de doctor inválido");
+			throw new ErrorAppointment("ID de doctor inválido");
 		}
 
 		const query: any = {doctor: doctorId};
@@ -160,21 +160,21 @@ export class AppointmentService {
 
 	private static validateAppointmentId(appointmentId: string) {
 		if (!Types.ObjectId.isValid(appointmentId)) {
-			throw new Error("ID de cita inválido");
+			throw new ErrorAppointment("ID de cita inválido");
 		}
 	}
 
 	private static async findAppointmentById(appointmentId: string) {
 		const appointment = await Appointment.findById(appointmentId);
 		if (!appointment) {
-			throw new Error("Cita no encontrada");
+			throw new ErrorAppointment("Cita no encontrada");
 		}
 		return appointment;
 	}
 
 	private static validateAppointmentStatus(appointment: any) {
 		if (appointment.status !== "scheduled") {
-			throw new Error("Solo se pueden cancelar citas programadas");
+			throw new ErrorAppointment("Solo se pueden cancelar citas programadas");
 		}
 	}
 
@@ -184,7 +184,7 @@ export class AppointmentService {
 		const hoursUntilAppointment = (appointmentTime - now) / (1000 * 60 * 60);
 
 		if (hoursUntilAppointment < 24) {
-			throw new Error(
+			throw new ErrorAppointment(
 				"Las citas deben cancelarse con al menos 24 horas de anticipación"
 			);
 		}
@@ -192,14 +192,14 @@ export class AppointmentService {
 
 	private static async validateIds(doctorId: string, userId: string) {
 		if (!Types.ObjectId.isValid(doctorId) || !Types.ObjectId.isValid(userId)) {
-			throw new Error("ID de doctor o usuario inválido");
+			throw new ErrorAppointment("ID de doctor o usuario inválido");
 		}
 	}
 
 	private static async getDoctor(doctorId: string) {
 		const doctor = await Doctor.findById(doctorId);
 		if (!doctor) {
-			throw new Error("Doctor no encontrado");
+			throw new ErrorAppointment("Doctor no encontrado");
 		}
 		doctor.workingHours = doctor.workingHours ?? {
 			start: "09:00",
@@ -212,7 +212,7 @@ export class AppointmentService {
 	private static async getUser(userId: string) {
 		const user = await User.findById(userId);
 		if (!user) {
-			throw new Error("Usuario no encontrado");
+			throw new ErrorAppointment("Usuario no encontrado");
 		}
 		return user;
 	}
@@ -222,23 +222,23 @@ export class AppointmentService {
 		console.log(time);
 		const appointmentDate = moment(`${date} ${time}`, "YYYY-MM-DD HH:mm");
 		if (!appointmentDate.isValid()) {
-			throw new Error("Fecha y hora de la cita no válidas");
+			throw new ErrorAppointment("Fecha y hora de la cita no válidas");
 		}
 		if (appointmentDate.isBefore(moment())) {
-			throw new Error("No se pueden agendar citas en el pasado");
+			throw new ErrorAppointment("No se pueden agendar citas en el pasado");
 		}
 		return appointmentDate.toDate();
 	}
 
 	private static validateAppointmentTime(date: Date, workingHours: any) {
 		if (!isValidAppointmentTime(date)) {
-			throw new Error(
+			throw new ErrorAppointment(
 				`Las citas deben agendarse en intervalos de ${TIME_SLOT_DURATION} minutos`
 			);
 		}
 
 		if (!isWithinWorkingHours(date, workingHours)) {
-			throw new Error("La hora de la cita está fuera del horario del doctor");
+			throw new ErrorAppointment("La hora de la cita está fuera del horario del doctor");
 		}
 	}
 
@@ -254,7 +254,7 @@ export class AppointmentService {
 
 		console.log(conflictingAppointment);
 		if (conflictingAppointment) {
-			throw new Error("El horario seleccionado no está disponible");
+			throw new ErrorAppointment("El horario seleccionado no está disponible");
 		}
 	}
 
@@ -269,7 +269,7 @@ export class AppointmentService {
 		});
 
 		if (userDailyAppointments >= 2) {
-			throw new Error("No se pueden agendar más de 2 citas por día");
+			throw new ErrorAppointment("No se pueden agendar más de 2 citas por día");
 		}
 	}
 
