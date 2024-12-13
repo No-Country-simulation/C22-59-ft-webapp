@@ -44,6 +44,7 @@ import ButtonMain from "./misc/ButtonMain.astro";
         
             const loginForm = document.getElementById('loginForm');
             
+            
             loginForm?.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 console.log("Loding...");
@@ -68,7 +69,7 @@ import ButtonMain from "./misc/ButtonMain.astro";
                         const {data} = await response.data;
                         
                         // Guardar token en localStorage
-                        localStorage.setItem('accessToken', data.token);
+                        localStorage.setItem('accessToken', 'Bearer ' + data.token);
                         
                         // Redirigir al dashboard o página principal
                         window.location.href = '/dashboard';

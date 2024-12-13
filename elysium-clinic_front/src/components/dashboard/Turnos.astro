@@ -30,12 +30,12 @@ import DashboardLayout from "../../layouts/DashboardLayout.astro"
 				</div>
 			</div>
 
-			<div class="overflow-x-auto w-full">
-			localStorage.get("accessToken")
+			<div class="overflow-x-auto w-full">	
 				<table id="appointmentsTable" class="w-full">
 					<thead class="bg-gray-100">
 						<tr>
 							<th class="text-left p-3">Paciente</th>
+							
 							<th class="text-left p-3">Fecha</th>
 							<th class="text-left p-3">Hora</th>
 							<th class="text-left p-3">Estado</th>
@@ -74,3 +74,47 @@ import DashboardLayout from "../../layouts/DashboardLayout.astro"
 </DashboardLayout>
 
 
+<script>
+	const tableBody = document.getElementById("tableBody");
+
+	// const user = await fetch('http://localhost:4000/api/appointments/user/6758b73ed2a028ea00477710');
+	// console.log(await user.json());
+	
+	const response = await fetch('http://localhost:4000/api/appointments/user/6758b73ed2a028ea00477710', {
+		method: 'GET',
+		headers: {
+		'Content-Type': 'application/json',
+		'authorization':localStorage.getItem('accessToken')??"",
+		},
+	});
+	const data = (await response.json()).data;
+	console.log(data);
+
+	data.forEach((app: any) => {
+				const row = document.createElement("tr");
+				let col =  "bg-green-100 text-green-800"
+				if (app.status === "scheduled"){
+					col = "bg-yellow-100 text-yellow-800"
+				}
+				if (app.status === "cancelled"){
+					col = "bg-red-100 text-red-800"
+
+				}
+
+				row.innerHTML = `
+              <td class="p-3">${app.doctor.name}</td>
+              <td class="p-3">${app.date.split("T")[0]}</td>
+              <td class="p-3">${app.date.split("T")[1].split(".")[0]}</td>
+              <td class="p-3">
+                <span class="px-2 py-1 rounded-full text-xs ${
+					// 
+					col
+				}">
+                  ${app.status}
+                </span>
+              </td>
+            `;
+				tableBody?.appendChild(row);
+			});
+
+</script>

@@ -62,3 +62,14 @@ export const deleteById = async (id: string) => {
 		throw new Error(`Error deleting user by id: ${error.message}`);
 	}
 };
+export const getByEmail = async (email: string) => {
+	try {
+		const user = await User.findOne({email});
+		if (!user) {
+			throw new Error("User not found");
+		}
+		return user;
+	} catch (error: any) {
+		throw new Error(`Error getting user by email: ${error.message}`);
+	}
+};
