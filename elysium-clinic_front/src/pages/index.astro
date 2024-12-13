@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+import HeroMain from "../components/Hero/HeroMain.astro";
+import Galeria from '../components/Secciones/Galeria.astro';
+import Servicios from '../components/Secciones/Servicios.astro';
+import Contacto from '../components/Secciones/Contacto.astro';
+import Navbar from '../components/Secciones/Navbar.astro';
+import Elegirnos from '../components/Secciones/Porque_elegirnos.astro';
+---
+
+<Layout title="Elysium clinic">
+		<main class="flex flex-col items-center justify-center"
+		>
+			<Navbar/>
+			<HeroMain />
+			<Contacto />
+			<Elegirnos />
+			<Servicios />
+			<Galeria/>
+		</main>
+</Layout>
+
+<script>
+	
+	  localStorage.removeItem('accessToken');
+	  
+	  console.log('logout')
+</script>

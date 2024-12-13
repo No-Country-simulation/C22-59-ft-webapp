@@ -1,0 +1,46 @@
+---
+interface Props {
+	title: string;
+}
+import {ClientRouter} from "astro:transitions";
+import Sidebar from "../components/Secciones/Sidebar.astro";
+import "../../styles/main.css";
+const {title} = Astro.props;
+
+
+---
+
+<!doctype html>
+<html lang="en" x-data="theme()" :class="$store.app.isDark ? 'dark' : ''">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<ClientRouter />
+		
+	</head>
+	<body x-data="homeSpy()">
+		<div class="flex flex-row">
+      <div class="lg:w-[20%]">
+        <Sidebar />
+      </div>
+      <div class="w-full px-8 h-screen relative">
+        <!-- Title -->
+         <h1 class="text-3xl font-bold text-start mt-8 ml-24 absolute text-blue-600">
+          {title}
+         </h1>
+        <slot  />
+      </div>
+		</div>
+		<!-- Main script -->
+		<script src="../js/main"></script>
+		
+		
+	</body>
+</html>
+
+

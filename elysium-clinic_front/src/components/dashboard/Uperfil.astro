@@ -1,0 +1,142 @@
+---
+import DashboardLayout from "../../layouts/DashboardLayout.astro"
+---
+
+<DashboardLayout title="">
+		<div class="registrate grid ">
+			<h1 class="text-3xl font-bold text-primary-600 flex justify-start underline underline-offset-[18px]  ">Editar Perfil</h1>
+			<div class="w-full h-8 bg-slate-300 rounded-lg"></div>
+			<form id="registerForm" class="grid grid-cols-1 md:grid-cols-2 gap-4 " >
+				<input
+					type="text"
+					name="nombre"
+					placeholder="nombre completo"
+					id="name"
+				/>
+				<input type="text" name="apellido" placeholder="apellido" id="surname" />
+				
+				<input
+					type="email"
+					name="email"
+					placeholder="Correo electronico"
+					id="email"
+				/>
+				<input
+					type="password"
+					name="password"
+					placeholder="Contraseña"
+					id="password"
+				/>
+				<input
+					type="date"
+					name="fecha"
+					placeholder="Fecha de nacimiento"
+					id="birthday"
+				/>
+				
+			<input type="number" name="dni" placeholder="Documento de identidad" id="nationalId">
+		
+				
+				<input type="number" name="telefono" placeholder="Teléfono" id="telephone" />
+				
+				<input
+					type="number"
+					name="tel-responsable"
+					placeholder="Teléfono responsable"
+					id="optionalTelephone"
+				/>
+			
+				<select name="sangre" id="blood" >
+					<option value="" selected disabled >Tipo de sangre</option>
+					<option value="A+">A+</option>
+					<option value="B+">B+</option>
+					<option value="AB+">AB+</option>
+					<option value="O+">O+</option>
+					<option value="A-">A-</option>
+					<option value="B-">B-</option>
+					<option value="AB-">AB-</option>
+					<option value="O-">O-</option>
+				</select>
+				<select name="genero" id="gender" class="select">
+					<option value="" selected disabled>Genero</option>
+					<option value="Masculino">Masculino</option>
+					<option value="Femenino">Femenino</option>
+					<option value="Otro">Otro</option>
+				</select>
+				
+				<button type="submit" >Guardar</button>
+
+				
+				
+			</form>
+		</div>
+		
+</DashboardLayout>
+
+<style>
+	.registrate {
+    width: 700px;
+    height: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 100px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+}
+
+
+
+.registrate form input {
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 300px;
+	
+}
+
+
+
+.registrate form input[type='date'] {
+    padding: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 300px;
+	
+}
+
+.registrate[data-astro-cid-arsmyzdo] form[data-astro-cid-arsmyzdo] select[data-astro-cid-arsmyzdo] {
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.registrate form button {
+    
+    padding: 15px;
+    background-color: #8080fb;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 300px;
+	
+}
+
+.registrate form p {
+    margin: 20px 0;
+    text-align: end;
+    cursor: pointer;
+}
+.registrate form p a {
+    text-decoration: none;
+    color: #5f5fff;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: normal;
+}
+</style>

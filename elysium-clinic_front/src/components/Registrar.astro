@@ -1,0 +1,217 @@
+---
+import ButtonMain from "./misc/ButtonMain.astro";
+
+---
+<!-- Agregue el link a las paginas correspondiente -->
+<div class=" py-10 bg-muted-100 dark:bg-muted-1000 w-screen">
+	
+	<a href="/">
+		<img class="w-24 h-20 flex fixed top-0 left-0"
+			src="../public/logo-elysium-subido.png"
+			alt="Logo"
+			/>
+	</a>
+
+
+<div class="registrate shadow-2xl bg-white mx-auto rounded-2xl p-5 ">
+	<h1 class="text-3xl font-bold ">REGISTRATE</h1>
+	<form id="registerForm">
+		<input
+			type="date"
+			name="fecha"
+			placeholder="Fecha de nacimiento"
+			id="birthday"
+		/>
+		<input
+			type="text"
+			name="nombre"
+			placeholder="nombre completo"
+			id="name"
+		/>
+		<input type="text" name="apellido" placeholder="apellido" id="surname" />
+		<input
+			type="number"
+			name="dni"
+			placeholder="Documento de identidad"
+			id="nationalId"
+		/>
+
+		<input
+			type="email"
+			name="email"
+			placeholder="Correo electronico"
+			id="email"
+		/>
+		<input
+			type="password"
+			name="password"
+			placeholder="Contraseña"
+			id="password"
+		/>
+		<input
+			type="password"
+			name="rpassword"
+			placeholder="Confirmar contraseña"
+			id="rpassword"
+		/>
+		<input type="number" name="telefono" placeholder="Teléfono" id="telephone" />
+		<input
+			type="number"
+			name="tel-responsable"
+			placeholder="Teléfono responsable"
+			id="optionalTelephone"
+		/>
+		<select name="sangre" id="blood">
+			<option value="" selected disabled>Tipo de sangre</option>
+			<option value="A+">A+</option>
+			<option value="B+">B+</option>
+			<option value="AB+">AB+</option>
+			<option value="O+">O+</option>
+			<option value="A-">A-</option>
+			<option value="B-">B-</option>
+			<option value="AB-">AB-</option>
+			<option value="O-">O-</option>
+		</select>
+		<select name="genero" id="gender">
+			<option value="" selected disabled>Genero</option>
+			<option value="Masculino">Masculino</option>
+			<option value="Femenino">Femenino</option>
+			<option value="Otro">Otro</option>
+		</select>
+		<button type="submit">Registrarse</button>
+		<p>¿Ya tienes una cuenta? <a href="/login">Login</a></p>
+	</form>
+</div>
+</div>
+<script>
+	const registerForm = document.getElementById('registerForm');
+
+	registerForm?.addEventListener('submit', async (e) => {
+  	e.preventDefault();
+
+	const birthday = (document.getElementById('birthday') as HTMLInputElement)?.value;
+	const name = (document.getElementById('name') as HTMLInputElement)?.value;
+	const surname = (document.getElementById('surname') as HTMLInputElement)?.value;
+	const nationalId = (document.getElementById('nationalId') as HTMLInputElement)?.value;
+	const email = (document.getElementById('email') as HTMLInputElement)?.value;
+	const password = (document.getElementById('password') as HTMLInputElement)?.value;
+	const rpassword = (document.getElementById('rpassword') as HTMLInputElement)?.value;
+	const telephone = (document.getElementById('telephone') as HTMLInputElement)?.value;
+	const optionalTelephone = (document.getElementById('optionalTelephone') as HTMLInputElement)?.value;
+	const blood = (document.getElementById('blood') as HTMLInputElement)?.value;
+	const gender = (document.getElementById('gender') as HTMLInputElement)?.value;
+
+	if (password !== rpassword || password.length < 8) {
+		alert('La contraseña no coincide o es muy corta.');
+		return;
+	}
+
+	const userData = {
+		birthday,
+		name,
+		surname,
+		nationalId,
+		email,
+		password,
+		telephone,
+		optionalTelephone,
+		blood,
+		gender
+	};
+	console.log(userData)
+
+	try {
+		const response = await fetch('http://localhost:4000/api/users/auth/register', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(userData)
+		});
+
+		const data = await response.json();
+
+		if (response.status === 200) {
+		console.log('Registro exitoso');
+		window.location.href = '/login';
+		} else {
+		console.error('Error al registrar');
+		console.error(data);
+		}
+	} catch (error) {
+		console.error('Error al registrar');
+		console.error(error);
+	}
+});
+
+</script>
+
+<style>
+	/* Registrate */
+
+.registrate {
+    width: 520px;
+    height: 686px;
+
+}
+.registrate h1 {
+    font-weight: 600;
+    line-height: normal;
+    background: linear-gradient(90deg, #8080fb 0%, #ec70ee 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.registrate form input {
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 237px;
+}
+
+.registrate form input[type='date'] {
+    padding: 10px;
+    margin-top: 20px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.registrate form select {
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 237px;
+}
+
+.registrate form button {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #8080fb;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.registrate form p {
+    margin: 20px 0;
+    text-align: end;
+    cursor: pointer;
+}
+.registrate form p a {
+    text-decoration: none;
+    color: #5f5fff;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: normal;
+}
+</style>

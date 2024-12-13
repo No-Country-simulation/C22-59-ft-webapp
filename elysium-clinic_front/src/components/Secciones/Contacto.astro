@@ -1,0 +1,41 @@
+---
+import ButtonMain from "../misc/ButtonMain.astro";
+---
+<div class="w-full px-16 mx-auto bg-muted-100 dark:bg-muted-1000 " id="contacto" x-intersect="activeStep = 'spy-2'" >
+    
+    <div class="my-6  "
+    
+    >
+        
+        <div class=" bg-muted-900 dark:bg-muted-200  flex items-center flex-cols-2  rounded-lg " data-aos="fade-up"
+        data-aos-anchor-placement="top-center" data-aos-duration="1500" data-aos-delay="0" data-aos-easing=" ease-in">
+          
+          <div class="max-w-screen  m-auto text-muted-100   dark:text-muted-800 p-10" >
+            <h1 class="sm:text-lg md:text-xl lg:text-3xl font-semibold mb-7 ">¡Te Esperamos!</h1>
+
+            <p class="text-muted-100 dark:text-muted-800 font-thin text-base sm:text-sm md:text-lg lg:text-xl ">Visítanos y descubre cómo podemos ayudarte a lucir y sentirte mejor.En Elysium tu belleza es nuestra pasión..
+            </p>
+            <div class="flex flex-cols-2 pt-5 ">
+              
+                  <ButtonMain to={"/login"} class="'w-auto sm:w-w-[40px] md:w-[80px] lg:w-[100px] bg-black text-white mx-2'"
+                    >Turnos</ButtonMain
+                  >
+                  <ButtonMain to={"/login"} class="'w-auto sm:w-w-[40px] md:w-[80px] lg:w-[100px] bg-black text-white mx-2'"
+                    >Contacto</ButtonMain
+                  >
+            </div>
+            
+          </div>
+
+          <div class="w-4/6 h-4/6">
+            
+            <img 
+            src="/public/hero.svg"
+            alt="Gestion de proyectos sociales" 
+            class="m-auto md:w-4/5 lg:w-5/6"/>
+          </div>
+        </div>
+    </div>
+
+    
+</div>

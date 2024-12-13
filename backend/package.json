@@ -4,7 +4,7 @@
   "description": "Backend Service REST API.",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./src/app.ts"
+    "dev": "nodemon -r tsconfig-paths/register ./src/app.ts"
   },
   "repository": {
     "type": "git",
@@ -17,24 +17,35 @@
   },
   "homepage": "https://github.com/No-Country-simulation/C22-59-ft-webapp#readme",
   "dependencies": {
-    "bcrypt": "^5.1.1",
+    "backend": "file:",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "joi": "^17.13.3",
     "jwt-simple": "^0.5.6",
     "moment": "^2.30.1",
+    "moment-timezone": "^0.5.46",
+    "mongoose": "^8.8.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-themes": "^1.4.3",
+    "swagger-ui-express": "^5.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/bcryptjs": "^2.4.6",
     "@types/cors": "^2.8.17",
     "@types/dotenv": "^6.1.1",
     "@types/express": "^5.0.0",
     "@types/joi": "^17.2.2",
     "@types/jwt-simple": "^0.5.36",
     "@types/moment": "^2.11.29",
-    "@types/bcrypt": "^5.0.2",
-    "nodemon": "^3.1.7"
+    "@types/mongoose": "^5.11.96",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.7",
+    "nodemon": "^3.1.7",
+    "tsconfig-paths": "^4.2.0"
   }
 }

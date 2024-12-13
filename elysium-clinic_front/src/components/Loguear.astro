@@ -1,0 +1,97 @@
+---
+import ButtonMain from "./misc/ButtonMain.astro";
+---
+<!-- Agregue el link a las paginas correspondiente -->
+<div class="bg-slate-100 dark:bg-muted-1000 w-full  py-8 pt-16">
+    <a href="/">
+		<img class="w-24 h-20 flex fixed top-0 left-0"
+			src="../public/logo-elysium-subido.png"
+			alt="Logo"
+			/>
+	</a>
+    <div class="container bg-white shadow-2xl m-auto p-5 rounded-xl w-[420px] h-[700px]">
+        <img src="../../public/assets/solo-img.webp" class=" w-28 mb-5 m-auto block" alt="" />
+        <h1 class="text-3xl font-bold underline">Inicio de Sesión</h1>
+        <form class="flex flex-col " id="loginForm" >
+            <input
+                class="p-3 mb-3 border-solid border-slate-200 border-2 rounded-lg" 
+                type="text"
+                name="email"
+                placeholder="Ingrese su correo"
+                id="email"
+                required
+            />
+            <input
+                class="p-3 mb-3 border-solid border-slate-200 border-2 rounded-lg"
+                type="password"
+                name="password"
+                placeholder="Ingrese su contraseña"
+                id="password"
+                required
+            />
+          
+            <button type="submit" 
+              class="relative font-sans font-normal  inline-flex items-center justify-center leading-5 no-underline space-x-1 text-white bg-primary-600 h-12 px-5 py-3 text-sm rounded-full hover:bg-primary-700 hover:shadow-xl hover:shadow-primary-600/20 tw-accessibility transition-all duration-300 mt-5"
+             >
+              Ingresar
+            </button>
+            <span class="mt-20 text-end ">¿No tienes una cuenta? <a class="text-primary-500 font-medium" href="/registro" >Registrate</a></span>
+        </form>
+    </div>
+    </div>
+    
+    <script>
+        
+            const loginForm = document.getElementById('loginForm');
+            
+            loginForm?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                console.log("Loding...");
+                const email = (document.getElementById('email') as HTMLInputElement).value;
+                const password = (document.getElementById('password') as HTMLInputElement).value;
+                
+                try {
+                    const response = await fetch('http://localhost:4000/api/users/auth/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ email, password })
+                    })
+                   
+                    .then((response) => response.json());
+                    
+                    
+                    
+                    
+                    if (response.status=== 200) {
+                        const {data} = await response.data;
+                        
+                        // Guardar token en localStorage
+                        localStorage.setItem('accessToken', data.token);
+                        
+                        // Redirigir al dashboard o página principal
+                        window.location.href = '/dashboard';
+                    } else {
+                        const errorData = await response.json();
+                        alert(errorData.message || 'Error en el inicio de sesión');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Ocurrió un error al iniciar sesión');
+                }
+            });
+          
+        
+    </script>
+
+    <style>
+    
+    .container h1 {
+        background: linear-gradient(90deg, #8080fb 0%, #ec70ee 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    </style>

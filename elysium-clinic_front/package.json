@@ -1,0 +1,35 @@
+{
+  "name": "elysium-clinic-front",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@alpinejs/collapse": "^3.14.3",
+    "@alpinejs/intersect": "^3.14.3",
+    "@alpinejs/persist": "^3.14.3",
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/tailwind": "^5.1.2",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/typography": "github:tailwindcss/typography",
+    "alpinejs": "^3.14.3",
+    "aos": "^2.3.4",
+    "astro": "^5.0.0-beta.8",
+    "autoprefixer": "^10.4.20",
+    "elysium-clinic-front": "file:",
+    "iconify-icon": "^2.1.0",
+    "postcss": "^8.4.49",
+    "swiper": "^11.1.15",
+    "tailwindcss": "^3.4.15",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.6.3"
+  },
+  "devDependencies": {
+    "@types/aos": "^3.0.7"
+  }
+}

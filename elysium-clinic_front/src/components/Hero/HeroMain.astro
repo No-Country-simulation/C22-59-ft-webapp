@@ -1,0 +1,76 @@
+---
+import ButtonMain from "../misc/ButtonMain.astro";
+import HeroMainModuleOne from "./HeroMainModuleOne.astro";
+
+---
+
+<div
+  class="min-h-screen w-full px-10 overflow-hidden pt-10 bg-muted-100 dark:bg-muted-1000 "
+  data-aos=""
+  id="inicio"  x-intersect="activeStep = 'spy-1'"
+>
+  
+  <div class="min-h-screen w-full max-w-full mx-auto flex items-center px-4 py-8 animate-fade-in duration-10000">
+    <div class="w-full grid grid-cols-12">
+      <div class="col-span-12 ltablet:col-span-5 lg:col-span-5">
+        <div
+          class="h-full ptablet:max-w-lg ptablet:mx-auto flex items-center mb-8 ltablet:mb-0 lg:mb-0"
+        >
+          <div
+            class="text-center ltablet:text-left lg:text-left font-sans space-y-4"
+          >
+            <h1
+              class="font-medium text-4xl ptablet:text-5xl lg:text-5xl text-muted-800 dark:text-white"
+            >
+            Bienvenidos a Elysium clínica Estetica
+            </h1>
+            <p class="text-lg text-muted-500 dark:text-muted-400">
+              Nuestra misión es ayudarte a realzar tu belleza natural y 
+              lograr el bienestar que mereces. Contamos con un equipo altamente capacitado y 
+              tecnología de vanguardia para ofrecerte tratamientos estéticos personalizados 
+              que se adapten a tus necesidades y objetivos.
+            </p>
+            <div
+              class="w-full flex items-center justify-center ltablet:justify-start lg:justify-start gap-2"
+            >
+              <ButtonMain to={"/registro"} class="'min-w-[130px]'"
+                >Registrate</ButtonMain
+              >
+              <!-- <ButtonSub to={"/"} class="'min-w-[130px]'">Explore</ButtonSub
+              > -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="relative col-span-12 ltablet:col-span-7 lg:col-span-7">
+        <img
+          src="/public/Dr-hero.webp"
+          class="w-4/6 ltablet:max-w-[540px] max-w-[620px] mx-auto"
+          alt="Hero image"
+        />
+        <!-- Decoration -->
+        <div
+          class="absolute top-6 left-0 h-14 w-14 hidden md:flex items-center justify-center rounded-full text-2xl bg-white dark:bg-muted-800 shadow-xl shadow-muted-300/30 dark:shadow-muted-900/50"
+        >
+        🦠
+        </div>
+        <div
+          class="absolute top-24 left-24 h-10 w-10 hidden md:flex items-center justify-center rounded-full text-2xl bg-white dark:bg-muted-800 shadow-xl shadow-muted-300/30 dark:shadow-muted-900/50"
+        >
+        💊
+        </div>
+        <div
+          class="absolute -bottom-10 right-0 h-16 w-16 hidden md:flex items-center justify-center rounded-full text-4xl bg-white dark:bg-muted-800 shadow-xl shadow-muted-300/30 dark:shadow-muted-900/50"
+        >
+        ⚕️ 
+        </div>
+        <div
+          class="absolute -top-12 left-1/3 h-16 w-16 hidden ptablet:hidden md:flex items-center justify-center rounded-full text-4xl bg-white dark:bg-muted-800 shadow-xl shadow-muted-300/30 dark:shadow-muted-900/50"
+        >
+        💉 
+        </div>
+        <HeroMainModuleOne />
+      </div>
+    </div>
+  </div>
+</div>

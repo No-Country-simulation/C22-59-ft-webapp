@@ -1,0 +1,20 @@
+---
+import DashboardLayout from "../../layouts/DashboardLayout.astro"
+---
+<DashboardLayout title="Rservar Turno">
+<div class="w-[600px] h-[600px] bg-white shadow-xl  rounded-2xl mt-20 mx-auto border-[1px]">
+	<form >
+		<div class="flex flex-col items-center justify-center h-full">
+			<img src="../../../public/Doctor.svg" alt="" class="w-40 h-40 mt-5">
+			<h1 class="text-3xl font-bold text-primary-600">Sacar Turno</h1>
+			<span class="mt-4">Fecha</span>
+			<input id="myInputDate" type="date" name="date" placeholder="Fecha" class="mt-4 w-[250px] h-[48px] rounded-lg text-center border-[1px] border-black/50" title="Fecha">
+			<span class="mt-4">Horario</span>
+			<input type="time" name="time" placeholder="horario" class="mt-4 w-[250px] h-[48px] rounded-lg text-center border-[1px]
+			 border-black/50" title="horario "  >
+			<button class="bg-primary-600 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded mt-4 w-[250px]">Sacar Turno</button>
+	</form>
+
+</div>
+</DashboardLayout>
+

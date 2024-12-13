@@ -1,0 +1,65 @@
+[
+  {
+    "birthday": "1990-05-15T00:00:00.000Z",
+    "name": "Carlos",
+    "surname": "Rodríguez",
+    "nationalId": "V-25789456",
+    "email": "carlos.rodriguez@gmail.com",
+    "password": "$2a$10$XkNlE9YX3Z5X.K5J6Lm2O.QZ5J6Z5J6Z5J6Z5J6Z5J6Z5J6Z5J",
+    "telephone": "+584241234567",
+    "optionalTelephone": "+584167894561",
+    "blood": "O+",
+    "gender": "Masculino",
+    "appointments": []
+  },
+  {
+    "birthday": "1988-08-23T00:00:00.000Z",
+    "name": "María",
+    "surname": "González",
+    "nationalId": "V-18456789",
+    "email": "maria.gonzalez@gmail.com",
+    "password": "$2a$10$AbCdEfGhIjKlMnOpQrStUvWxYzAbCdEfGhIjKlMnOpQrStUv",
+    "telephone": "+584147894562",
+    "blood": "A+",
+    "gender": "Femenino",
+    "appointments": []
+  },
+  {
+    "birthday": "1995-12-03T00:00:00.000Z",
+    "name": "Luis",
+    "surname": "Pérez",
+    "nationalId": "V-26789123",
+    "email": "luis.perez@gmail.com",
+    "password": "$2a$10$LmNoPqRsTuVwXyZaBcDeFgHiJkLmNoPqRsTuVwXyZaBcDeFg",
+    "telephone": "+584167891234",
+    "optionalTelephone": "+584241598753",
+    "blood": "B-",
+    "gender": "Masculino",
+    "appointments": []
+  },
+  {
+    "birthday": "1992-03-27T00:00:00.000Z",
+    "name": "Ana",
+    "surname": "Martínez",
+    "nationalId": "V-20123456",
+    "email": "ana.martinez@gmail.com",
+    "password": "$2a$10$StUvWxYzAbCdEfGhIjKlMnOpQrStUvWxYzAbCdEfGhIjKl",
+    "telephone": "+584249876543",
+    "blood": "AB+",
+    "gender": "Femenino",
+    "appointments": []
+  },
+  {
+    "birthday": "1987-09-18T00:00:00.000Z",
+    "name": "Alex",
+    "surname": "Torres",
+    "nationalId": "V-15789456",
+    "email": "alex.torres@gmail.com",
+    "password": "$2a$10$QrStUvWxYzAbCdEfGhIjKlMnOpQrStUvWxYzAbCdEfGhIj",
+    "telephone": "+584141234567",
+    "optionalTelephone": "+584249876543",
+    "blood": "O-",
+    "gender": "Otro",
+    "appointments": []
+  }
+]
