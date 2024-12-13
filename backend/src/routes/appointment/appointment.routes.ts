@@ -2,6 +2,7 @@ import { Router } from 'express';
 import AppointmentController from '@controllers/appointment/appointment.controller';
 import { validateRequest } from '@middlewares/validateRequest';
 import { appointmentSchema } from '@helpers/appointments/schema.validator';
+import { validateToken } from '@helpers/token/token.validator';
 
 const router = Router();
 /**
@@ -63,7 +64,7 @@ const router = Router();
  *             schema:
  *               $ref: '#/components/schemas/Appointment'
  */
-router.post('/', validateRequest(appointmentSchema), AppointmentController.createAppointment);
+router.post('/',validateToken, validateRequest(appointmentSchema), AppointmentController.createAppointment);
 
 /**
  * @swagger
@@ -97,7 +98,7 @@ router.post('/', validateRequest(appointmentSchema), AppointmentController.creat
  *       400:
  *         description: Faltan parámetros obligatorios
  */
-router.get('/available-slots', AppointmentController.getAvailableSlots);
+router.get('/available-slots',validateToken, AppointmentController.getAvailableSlots);
 
 /**
  * @swagger
@@ -129,7 +130,7 @@ router.get('/available-slots', AppointmentController.getAvailableSlots);
  *       400:
  *         description: Error al actualizar el estado
  */
-router.patch('/:id/status', AppointmentController.updateAppointmentStatus);
+router.patch('/:id/status',validateToken, AppointmentController.updateAppointmentStatus);
 
 /**
  * @swagger
@@ -156,7 +157,11 @@ router.patch('/:id/status', AppointmentController.updateAppointmentStatus);
  *       400:
  *         description: Error en la solicitud
  */
-router.get('/user/:userId', AppointmentController.getUserAppointments);
+router.get(
+	"/user/:userId",
+	validateToken,
+	AppointmentController.getUserAppointments
+);
 
 /**
  * @swagger
@@ -195,7 +200,11 @@ router.get('/user/:userId', AppointmentController.getUserAppointments);
  *       400:
  *         description: Error en la solicitud
  */
-router.get('/doctor/:doctorId', AppointmentController.getDoctorAppointments);
+router.get(
+	"/doctor/:doctorId",
+	validateToken,
+	AppointmentController.getDoctorAppointments
+);
 
 /**
  * @swagger
@@ -226,6 +235,10 @@ router.get('/doctor/:doctorId', AppointmentController.getDoctorAppointments);
  *       400:
  *         description: Error al cancelar la cita
  */
-router.post('/:id/cancel', AppointmentController.cancelAppointment);
+router.post(
+	"/:id/cancel",
+	validateToken,
+	AppointmentController.cancelAppointment
+);
 
 export default router;
