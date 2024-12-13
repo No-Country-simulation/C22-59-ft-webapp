@@ -3,18 +3,55 @@ import DashboardLayout from "../../layouts/DashboardLayout.astro"
 ---
 <DashboardLayout title="Rservar Turno">
 <div class="w-[600px] h-[600px] bg-white shadow-xl  rounded-2xl mt-20 mx-auto border-[1px]">
-	<form >
+	<form id="turnoForm">
 		<div class="flex flex-col items-center justify-center h-full">
 			<img src="../../../public/Doctor.svg" alt="" class="w-40 h-40 mt-5">
 			<h1 class="text-3xl font-bold text-primary-600">Sacar Turno</h1>
 			<span class="mt-4">Fecha</span>
-			<input id="myInputDate" type="date" name="date" placeholder="Fecha" class="mt-4 w-[250px] h-[48px] rounded-lg text-center border-[1px] border-black/50" title="Fecha">
+			<input id="date" type="date" name="date" placeholder="Fecha" class="mt-4 w-[250px] h-[48px] rounded-lg text-center border-[1px] border-black/50" title="Fecha">
 			<span class="mt-4">Horario</span>
 			<input type="time" name="time" placeholder="horario" class="mt-4 w-[250px] h-[48px] rounded-lg text-center border-[1px]
-			 border-black/50" title="horario "  >
-			<button class="bg-primary-600 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded mt-4 w-[250px]">Sacar Turno</button>
+			 border-black/50" title="horario "  id="time" >
+			<button class="bg-primary-600 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded mt-4 w-[250px]" type="submit" >Sacar Turno</button>
 	</form>
 
 </div>
 </DashboardLayout>
 
+<script>
+
+	const formTurno = document.getElementById('turnoForm') as HTMLFormElement;
+
+	formTurno?.addEventListener('submit', async (e) => {
+		e.preventDefault();
+
+	const date = (document.getElementById('date') as HTMLInputElement).value;
+	const time = (document.getElementById('time') as HTMLInputElement).value;
+	console.log(date)
+	try {
+		const response = await fetch('http://localhost:4000/api/appointments', {
+		method: 'POST',
+		headers: {
+		'Content-Type': 'application/json'
+		},
+			body: JSON.stringify({
+				doctor: "674444c504d490b9f61bc41e",
+				user: "6744448f04d490b9f61bc419",
+				date: date,
+				time: time,
+				status: "scheduled",
+				reason: "Dolor estomacal",
+				notes: "Nauseas y mareos"
+			})
+		});
+
+	  	const data = await response.json();
+	  	console.log(data);
+	} catch (error) {
+  		console.error('Error:', error);
+	}
+		
+
+
+})
+</script>
