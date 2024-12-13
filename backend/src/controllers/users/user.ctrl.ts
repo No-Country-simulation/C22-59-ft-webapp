@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Request, Response } from "express";
 import { HttpResponse } from "../../helpers/error/validation.error";
 import { create, get, getById } from "../../services/user/user.service";
@@ -7,17 +6,7 @@ import { login } from "../../services/user/user.service";
 import { createToken } from "../../helpers/token/token.creator";
 import bcryptjs from "bcryptjs";
 import userModel from "../../models/users/user.model";
-=======
-import {Request, Response} from "express";
-import {HttpResponse} from "@helpers/error/validation.error";
-import {create, get, getById} from "@services/user/user.service";
-import {userSchema, loginSchema} from "@helpers/user/schema.validator";
-import {login} from "@services/user/user.service";
-import {createToken} from "@helpers/token/token.creator";
-import {emailExists} from "@helpers/validator.roles";
-import bcrypt from "bcrypt";
-import userModel from "@models/users/user.model";
->>>>>>> 45aa9996d1cc4aa52713c896d940293b5350edd4
+import { emailExists } from "../../helpers/validator.roles";
 
 const httpResponse = new HttpResponse();
 
@@ -25,32 +14,18 @@ export const createUser = async (
 	{body}: Request,
 	res: Response
 ): Promise<any> => {
-<<<<<<< HEAD
-  try {
-    const { error, value } = userSchema.validate(body);
-    if (error) {
-      httpResponse.BadRequest(res, error.details[0].message);
-    }
-    const { password, ...rest } = value;
-    const hashedPassword = await bcryptjs.hash(password, 10);
-    const user = { ...rest, password: hashedPassword };
-    const createdUser = await create(user);
-    const userObject = createdUser.toObject();
-    const { password: _, ...restData } = userObject;
-=======
 	try {
 		const {error, value} = userSchema.validate(body);
 		if (error) {
 			httpResponse.BadRequest(res, error.details[0].message);
 		}
 		const {password, ...rest} = value;
-		const hashedPassword = await bcrypt.hash(password, 10);
+		const hashedPassword = await bcryptjs.hash(password, 10);
 		const user = {...rest, password: hashedPassword};
 		
 		if (await emailExists(user.email)) {
 			return httpResponse.BadRequest(res, "Email ya existe");
 		}
->>>>>>> 45aa9996d1cc4aa52713c896d940293b5350edd4
 
 		const createdUser = await create(user);
 		const userObject = createdUser.toObject();

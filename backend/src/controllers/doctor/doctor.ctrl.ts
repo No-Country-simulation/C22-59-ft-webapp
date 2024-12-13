@@ -12,7 +12,7 @@ import {IDoctor} from "@interfaces/doctor";
 import {HttpResponse} from "@helpers/error/validation.error";
 import {createToken} from "@helpers/token/token.creator";
 import {emailExists} from "@helpers/validator.roles";
-import bcrypt from "bcrypt";
+import bcryptjs from "bcryptjs";
 import { loginSchema } from "@helpers/user/schema.validator";
 
 const httpResponse = new HttpResponse();
@@ -35,7 +35,7 @@ export const createDoctor = async (
 			return httpResponse.BadRequest(res, error.details[0].message);
 		}
 		const {password, ...rest} = value;
-		const hashedPassword = await bcrypt.hash(password, 10);
+		const hashedPassword = await bcryptjs.hash(password, 10);
 		const doctor = {...rest, password: hashedPassword} as IDoctor;
 
 		if (await emailExists(doctor.email)) {
