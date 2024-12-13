@@ -5,10 +5,12 @@ import {
 	loginUser,
 	getUsers,
 	getUserById,
+	getUserByEmail,
 	deleteUserById,
 } from "@controllers/users/user.ctrl";
 import {isAdministrator} from "@middlewares/administrator/administrator.mw";
 import {isDoctor} from "@middlewares/doctor/doctor.mw";
+import { getByEmail } from "@services/doctor/doctor.service";
 const router = Router();
 
 /**
@@ -167,7 +169,35 @@ router.post("/users/auth/login", isAdministrator, isDoctor, loginUser);
  *         description: Error when fetching USERS
  */
 router.get("/users", validateToken, getUsers);
-
+/**
+ * @swagger
+ * /api/users/{email}:
+ *   get:
+ *     summary: Get user by email
+ *     description: Get user by email
+ *     tags:
+ *       - USER
+ *     parameters:
+ *       - name: email
+ *         in: path
+ *         description: User email
+ *         required: true
+ *         schema:	
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               $ref: '#/components/schemas/IUser'	
+ *       404:
+ *         description: User not found
+ *       500:
+ *         description: Error when fetching USER
+ */
+router.get("/users/:email", validateToken,getUserByEmail);
 /**
  * @swagger
  * /api/users/{id}:

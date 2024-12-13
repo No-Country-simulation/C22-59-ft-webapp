@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { HttpResponse } from "../../helpers/error/validation.error";
-import { create, get, getById } from "../../services/user/user.service";
+import { create, get, getById, getByEmail } from "../../services/user/user.service";
 import { userSchema, loginSchema } from "../../helpers/user/schema.validator";
 import { login } from "../../services/user/user.service";
 import { createToken } from "../../helpers/token/token.creator";
@@ -91,7 +91,19 @@ export const getUserById = async (
 		});
 	}
 };
-
+export const getUserByEmail = async (req: Request, res: Response): Promise<any> => {
+	try {
+		const {email} = req.params;
+		const user = await getByEmail(email)
+		if (!user) return httpResponse.NotFound(res, {message: "User not found"});
+		return httpResponse.Ok(res, {data: user});
+	} catch (err: any) {
+		return httpResponse.Error(res, {
+			message: "Could not get User by Email",
+			error: err.message,
+		});
+	}
+};
 export const deleteUserById = async (
 	req: Request,
 	res: Response
