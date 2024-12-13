@@ -1,6 +1,9 @@
-import { Router } from "express";
-import { createAdministrator,loginAdministrator } from "../../controllers/administrator/administrator.ctrl";
-import { validateToken } from "../../helpers/token/token.validator";	
+import {Router} from "express";
+import {
+	createAdministrator,
+	loginAdministrator,
+} from "@controllers/administrator/administrator.ctrl";
+import {validateToken} from "@helpers/token/token.validator";
 
 const router = Router();
 /**
@@ -64,7 +67,7 @@ const router = Router();
  *           description: ADMINISTRATOR's password.
  *       example:
  *         email: "administratorCristian@gmail.com"
- *         password: "12345678" 
+ *         password: "12345678"
  * /api/administrator:
  *   post:
  *     security:
@@ -91,7 +94,7 @@ const router = Router();
  *       500:
  *         description: Error creating the ADMINISTRATOR
  */
-router.post("/administrator",validateToken, createAdministrator);
+router.post("/administrator", validateToken, createAdministrator);
 /**
  * @swagger
  * /api/administrator/auth/login:

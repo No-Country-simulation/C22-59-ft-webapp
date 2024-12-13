@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Juan",
+    "surname": "Méndez",
+    "specialty": "Cardiología",
+    "email": "juan.mendez@clinica.com",
+    "telephone": "+584241234567",
+    "nationalId": "V-12345678",
+    "licenseNumber": "CMD-12345",
+    "workingHours": {
+      "start": "08:00",
+      "end": "16:00",
+      "daysOff": [
+        "Sunday",
+        "Saturday"
+      ]
+    },
+    "appointments": []
+  },
+  {
+    "name": "Laura",
+    "surname": "Fernández",
+    "specialty": "Pediatría",
+    "email": "laura.fernandez@clinica.com",
+    "telephone": "+584167891234",
+    "nationalId": "V-23456789",
+    "licenseNumber": "CMD-23456",
+    "workingHours": {
+      "start": "09:00",
+      "end": "17:00",
+      "daysOff": [
+        "Sunday",
+        "Wednesday"
+      ]
+    },
+    "appointments": []
+  },
+  {
+    "name": "Roberto",
+    "surname": "García",
+    "specialty": "Traumatología",
+    "email": "roberto.garcia@clinica.com",
+    "telephone": "+584147894561",
+    "nationalId": "V-34567890",
+    "licenseNumber": "CMD-34567",
+    "workingHours": {
+      "start": "07:00",
+      "end": "15:00",
+      "daysOff": [
+        "Sunday",
+        "Thursday"
+      ]
+    },
+    "appointments": []
+  },
+  {
+    "name": "Patricia",
+    "surname": "Ramírez",
+    "specialty": "Dermatología",
+    "email": "patricia.ramirez@clinica.com",
+    "telephone": "+584249876543",
+    "nationalId": "V-45678901",
+    "licenseNumber": "CMD-45678",
+    "workingHours": {
+      "start": "10:00",
+      "end": "18:00",
+      "daysOff": [
+        "Sunday",
+        "Monday"
+      ]
+    },
+    "appointments": []
+  },
+  {
+    "name": "Miguel",
+    "surname": "Torres",
+    "specialty": "Oftalmología",
+    "email": "miguel.torres@clinica.com",
+    "telephone": "+584141598753",
+    "nationalId": "V-56789012",
+    "licenseNumber": "CMD-56789",
+    "workingHours": {
+      "start": "08:30",
+      "end": "16:30",
+      "daysOff": [
+        "Sunday",
+        "Friday"
+      ]
+    },
+    "appointments": []
+  }
+]
