@@ -22,12 +22,6 @@ import DashboardLayout from "../../layouts/DashboardLayout.astro"
 					id="email"
 				/>
 				<input
-					type="password"
-					name="password"
-					placeholder="Contraseña"
-					id="password"
-				/>
-				<input
 					type="date"
 					name="fecha"
 					placeholder="Fecha de nacimiento"
@@ -140,3 +134,40 @@ import DashboardLayout from "../../layouts/DashboardLayout.astro"
     line-height: normal;
 }
 </style>
+
+<script>
+	const inputName:HTMLInputElement = document.getElementById("name") as HTMLInputElement;
+	const inputSurname:HTMLInputElement = document.getElementById("surname") as HTMLInputElement;
+	const inputEmail:HTMLInputElement = document.getElementById("email") as HTMLInputElement;
+	const inputBirthday:HTMLInputElement = document.getElementById("birthday") as HTMLInputElement;
+	const inputNationalId:HTMLInputElement = document.getElementById("nationalId") as HTMLInputElement;
+	const inputTelephone:HTMLInputElement = document.getElementById("telephone") as HTMLInputElement;
+	const inputOptionalTelephone:HTMLInputElement = document.getElementById("optionalTelephone") as HTMLInputElement;
+	const inputBlood:HTMLInputElement = document.getElementById("blood") as HTMLInputElement;	
+	const inputGender:HTMLInputElement = document.getElementById("gender") as HTMLInputElement;
+
+	// const user = await fetch('http://localhost:4000/api/appointments/user/6758b73ed2a028ea00477710');
+	// console.log(await user.json());
+	let data;
+	try {
+		const response = await fetch('http://localhost:4000/api/users/6758b73ed2a028ea00477710', {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json',
+				'authorization':localStorage.getItem('accessToken')??"",
+			},
+		});
+		data = ((await response.json()).data).data;
+	} catch (error) {
+		
+	}
+	inputName.value = data.name;
+	inputSurname.value = data.surname;
+	inputEmail.value = data.email;
+	inputBirthday.value = data.birthday;
+	inputNationalId.value = data.nationalId;
+	inputTelephone.value = data.telephone;
+	inputOptionalTelephone.value = data.optionalTelephone;
+	inputBlood.value = data.blood;
+	
+</script>

@@ -178,7 +178,7 @@
 		/>
 		<div>
 			<p class="text-xs text-gray-500 font-semibold">Bienvenido 🤓</p>
-			<p class="font-semibold">Juan</p>
+			<p id="userNameSidebar" class="font-semibold">Juan</p>
 		</div>
 	</div>
 </div>
@@ -195,7 +195,21 @@
 <script>
 	const sidebar = document.getElementById("sidebar");
 	const menuToggle = document.getElementById("menuToggle");
-
+	const userNameSidebar = document.getElementById("userNameSidebar") as HTMLParagraphElement;
+	let data;
+	try {
+		const response = await fetch('http://localhost:4000/api/users/6758b73ed2a028ea00477710', {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json',
+				'authorization':localStorage.getItem('accessToken')??"",
+			},
+		});
+		data = ((await response.json()).data).data;
+	} catch (error) {
+		
+	}
+	userNameSidebar.innerHTML = data.name;
 	menuToggle?.addEventListener("click", () => {
 		sidebar?.classList.toggle("-translate-x-full");
 	});

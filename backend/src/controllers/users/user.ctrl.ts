@@ -81,6 +81,7 @@ export const getUserById = async (
 ): Promise<any> => {
 	try {
 		const {id} = req.params;
+		console.log(id);
 		const user = await getById(id);
 		if (!user) return httpResponse.NotFound(res, {message: "User not found"});
 		return httpResponse.Ok(res, {data: user});

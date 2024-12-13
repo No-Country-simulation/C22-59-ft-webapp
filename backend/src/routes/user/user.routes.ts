@@ -171,7 +171,7 @@ router.post("/users/auth/login", isAdministrator, isDoctor, loginUser);
 router.get("/users", validateToken, getUsers);
 /**
  * @swagger
- * /api/users/{email}:
+ * /api/users/email/{email}:
  *   get:
  *     summary: Get user by email
  *     description: Get user by email
@@ -197,7 +197,7 @@ router.get("/users", validateToken, getUsers);
  *       500:
  *         description: Error when fetching USER
  */
-router.get("/users/:email", validateToken,getUserByEmail);
+router.get("/users/email/:email",getUserByEmail);
 /**
  * @swagger
  * /api/users/{id}:
