@@ -1,12 +1,12 @@
-import {Request, Response} from "express";
-import {HttpResponse} from "@helpers/error/validation.error";
-import {create, get, getById} from "@services/user/user.service";
-import {userSchema, loginSchema} from "@helpers/user/schema.validator";
-import {login} from "@services/user/user.service";
-import {createToken} from "@helpers/token/token.creator";
-import {emailExists} from "@helpers/validator.roles";
-import bcrypt from "bcrypt";
-import userModel from "@models/users/user.model";
+import { Request, Response } from "express";
+import { HttpResponse } from "../../helpers/error/validation.error";
+import { create, get, getById } from "../../services/user/user.service";
+import { userSchema, loginSchema } from "../../helpers/user/schema.validator";
+import { login } from "../../services/user/user.service";
+import { createToken } from "../../helpers/token/token.creator";
+import bcryptjs from "bcryptjs";
+import userModel from "../../models/users/user.model";
+import { emailExists } from "../../helpers/validator.roles";
 
 const httpResponse = new HttpResponse();
 
@@ -20,7 +20,7 @@ export const createUser = async (
 			httpResponse.BadRequest(res, error.details[0].message);
 		}
 		const {password, ...rest} = value;
-		const hashedPassword = await bcrypt.hash(password, 10);
+		const hashedPassword = await bcryptjs.hash(password, 10);
 		const user = {...rest, password: hashedPassword};
 		
 		if (await emailExists(user.email)) {

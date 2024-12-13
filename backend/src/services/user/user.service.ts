@@ -1,6 +1,6 @@
-import {IUser} from "@interfaces/user";
-import User from "@models/users/user.model";
-import bcrypt from "bcrypt";
+import { IUser } from "../../interfaces/user";
+import User from "../../models/users/user.model";
+import bcryptjs from "bcryptjs";
 
 export const create = async (user: IUser) => {
 	try {
@@ -12,19 +12,19 @@ export const create = async (user: IUser) => {
 };
 
 export const login = async (email: string, password: string) => {
-	try {
-		const user = await User.findOne({email});
-		if (!user) {
-			throw new Error("Invalid email or password");
-		}
-		const isPasswordMatch = await bcrypt.compare(password, user.password);
-		if (!isPasswordMatch) {
-			throw new Error("Invalid email or password");
-		}
-		return user;
-	} catch (error: any) {
-		throw new Error(`Error logging in: ${error.message}`);
-	}
+  try {
+    const user = await User.findOne({ email });
+    if (!user) {
+      throw new Error("Invalid email or password");
+    }
+    const isPasswordMatch = await bcryptjs.compare(password, user.password);
+    if (!isPasswordMatch) {
+      throw new Error("Invalid email or password");
+    }
+    return user;
+  } catch (error: any) {
+    throw new Error(`Error logging in: ${error.message}`);
+  }
 };
 
 export const get = async () => {

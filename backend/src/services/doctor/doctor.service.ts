@@ -1,6 +1,6 @@
 import doctorModel from "@models/doctor/doctor.model";
 import { IDoctor } from "@interfaces/doctor";
-import bcrypt from "bcrypt";
+import bcryptjs from "bcryptjs";
 
 export const login = async (email: string, password: string) => {
   try {
@@ -8,7 +8,7 @@ export const login = async (email: string, password: string) => {
     if (!doctorByEmail)
       throw new Error("No existe doctor con ese email");
 
-    if (!await bcrypt.compare(password, doctorByEmail.password))
+    if (!await bcryptjs.compare(password, doctorByEmail.password))
       throw new Error("Contraseña incorrecta");
 
     return doctorByEmail;
