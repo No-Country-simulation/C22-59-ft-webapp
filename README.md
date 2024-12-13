@@ -32,7 +32,7 @@ Elysium Clinic es una aplicación web que permite a los pacientes registrarse y 
 
 ### 🏛️ Decisiones de Arquitectura
 #### Diagrama de Arquitectura
-![Diagrama de Arquitectura](ruta/a/tu/diagrama.png)
+
 
 - **MVC**: Modelo de vista controlado (MVC) para la gestión de datos.
 - **Autenticación JWT**: Seguridad basada en tokens para sesiones seguras.  
